@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-998SiF8NavmNomPdqpop0L4s3E5o0bIdVCz7NfmilEc='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-Xit94X2Lljygm122a7T6GaeqkOL+gHQHMwH/m0SPfv0='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -29,7 +29,7 @@ svg { display: block; flex: none; }
 
 /* The sky at dusk: the last light sits low on the left, where the name sets into the horizon. */
 .sky {
-  position: relative; overflow: hidden;
+  position: relative;
   background:
     radial-gradient(70% 95% at 16% 100%, rgba(240,183,101,.34), rgba(224,143,176,.15) 42%, transparent 72%),
     linear-gradient(#090912, #14132a);
@@ -46,14 +46,19 @@ h1 {
   color: #fbf3e4; margin-bottom: -.13em; white-space: nowrap;
 }
 /* The name sets like the sun: the horizon cuts its foot off, and the ground throws a
-   thin shadow up the letters where they go behind it. */
+   thin shadow up the letters where they go behind it. Only the last letter stays whole,
+   in front of the line and its shadow. */
+h1 span { display: inline-block; }
+h1 .sunk { clip-path: inset(-1em -.2em .13em -.2em); }
+h1 .front { position: relative; z-index: 2; }
 .horizon::before {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: clamp(6px, 1.3vw, 18px);
   background: linear-gradient(transparent, rgba(9,9,18,.22) 50%, rgba(9,9,18,.62));
 }
 .horizon { position: relative; z-index: 1; height: 2px; background: linear-gradient(90deg, var(--ember), var(--rose) 45%, rgba(180,160,248,.5) 75%, transparent); }
 
-.intro { padding: clamp(36px, 5vw, 64px) 0 44px; background: var(--night); }
+/* Room for the tail of the last letter, which hangs below the horizon. */
+.intro { padding: calc(clamp(19px, 4.65vw, 64px) + 22px) 0 44px; background: var(--night); }
 .intro .wrap { display: grid; gap: 24px 64px; }
 @media (min-width: 900px) { .intro .wrap { grid-template-columns: minmax(0, 1fr) auto; align-items: start; } }
 .lead { margin: 0; max-width: 56ch; color: var(--soft); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.5; }
@@ -193,7 +198,7 @@ footer .links { margin-left: auto; display: flex; gap: 22px; }
       <a class="hide" href="https://drobov1tya.github.io/dusk_code/">The app</a>
       <a href="https://github.com/DroBov1Tya/duskcode-workshop">GitHub</a>
     </nav>
-    <h1>Workshop</h1>
+    <h1 aria-label="Workshop"><span class="sunk" aria-hidden="true">Worksho</span><span class="front" aria-hidden="true">p</span></h1>
   </div>
   <div class="horizon"></div>
 </header>
