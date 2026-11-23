@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-CKuurP+H/aa1Cv61SdfhOm7gv/pq8cqIUj8U/KAac9o='; style-src 'sha256-nKAg1UH16jyA4SVOl+ZUGMj3fgFezsRr80mZ9bdU5r4='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-H7N/LzFQEC2hq/1mLn7EZXn0+MdTXV3obfNpmQGpzsM='; style-src 'sha256-yeIkjsMgY4u2AspSLml47mnbKOBpXORKSRlzkxclMrY='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -130,6 +130,7 @@ h2 { font-size: clamp(26px, 3.6vw, 34px); letter-spacing: -.015em; margin: 0 0 1
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
 .chips button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--muted); font: inherit; font-size: var(--small); cursor: pointer; }
 .chips button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+.chips.cats button { font-size: var(--meta); padding: 4px 10px; }
 .chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .by { margin: 0; font-size: var(--meta); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .empty { grid-column: 1 / -1; color: var(--muted); margin: 0; }
@@ -190,6 +191,7 @@ footer span { margin-right: auto; }
       <p class="lead">Plugins, skills, packs and agents. A plugin runs in its own sandbox, sees none of your keys and reaches only the sites it names; skills and agents are text.</p>
       <label class="search" hidden><input id="search" type="search" placeholder="Search the Workshop" autocomplete="off" aria-label="Search the Workshop"></label>
       <div class="chips" id="chips" role="group" aria-label="Show" hidden></div>
+      <div class="chips cats" id="cats" role="group" aria-label="Category" hidden></div>
       <p class="count" id="count" aria-live="polite"></p>
       <div class="install" role="group" aria-labelledby="install-title">
         <h2 id="install-title">Install in duskcode</h2>
@@ -383,7 +385,7 @@ function card(item) {
   body.appendChild(el('p', 'desc', item.description || ''));
   var foot = el('div', 'foot');
   foot.appendChild(tierMark(item));
-  if (item.category) foot.appendChild(el('span', 'meta', item.category));
+  if (catsOf(item).length) foot.appendChild(el('span', 'meta', catsOf(item).map(function (c) { return CATS[c]; }).join(' · ')));
   body.appendChild(foot);
   node.appendChild(body);
   return node;
@@ -483,8 +485,19 @@ function installStep(name) {
 
 var SHOW = [['all', 'All'], ['plugin', 'Plugins'], ['agents', 'Agents'], ['pack', 'Skill packs'], ['connector', 'Connectors']];
 var chosen = 'all';
+var chosenCat = 'all';
+var CATS = { coding: 'Coding', review: 'Review', testing: 'Testing', security: 'Security', research: 'Research',
+  writing: 'Writing', data: 'Data', devops: 'DevOps', design: 'Design', productivity: 'Productivity',
+  devices: 'Devices', communication: 'Communication' };
+
+// Format 3 files an item under up to three categories; format 2 under one.
+function catsOf(p) {
+  var list = arr(p.categories).length ? arr(p.categories) : (p.category ? [p.category] : []);
+  return list.filter(function (c) { return own(CATS, c); });
+}
 
 function inChoice(p) {
+  if (chosenCat !== 'all' && catsOf(p).indexOf(chosenCat) === -1) return false;
   if (chosen === 'all') return true;
   if (chosen === 'agents') return isAgents(p);
   if (chosen === 'pack') return kindOf(p) === 'pack' && !isAgents(p);
@@ -498,6 +511,21 @@ function drawChips() {
     b.type = 'button';
     b.setAttribute('aria-pressed', String(chosen === pair[0]));
     b.addEventListener('click', function () { chosen = pair[0]; drawChips(); show(); });
+    return b;
+  }));
+  box.hidden = false;
+}
+
+function drawCats() {
+  var box = document.getElementById('cats'), count = {};
+  all.forEach(function (p) { catsOf(p).forEach(function (c) { count[c] = (count[c] || 0) + 1; }); });
+  var keys = Object.keys(CATS).filter(function (c) { return count[c]; });
+  var pairs = [['all', 'All categories']].concat(keys.map(function (c) { return [c, CATS[c] + ' ' + count[c]]; }));
+  box.replaceChildren.apply(box, pairs.map(function (pair) {
+    var b = el('button', '', pair[1]);
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(chosenCat === pair[0]));
+    b.addEventListener('click', function () { chosenCat = pair[0]; drawCats(); show(); });
     return b;
   }));
   box.hidden = false;
@@ -535,6 +563,7 @@ fetch('index.json', { cache: 'no-cache' })
       .filter(function (p) { return p && typeof p.name === 'string'; })
       .sort(function (a, b) { return a.name < b.name ? -1 : 1; });
     drawChips();
+    drawCats();
     show();
   })
   .catch(function () { failed('The list did not load. Try again in a moment.'); });
