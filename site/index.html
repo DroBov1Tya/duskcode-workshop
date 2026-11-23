@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-Xit94X2Lljygm122a7T6GaeqkOL+gHQHMwH/m0SPfv0='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I303hVNnoPS+nx1Tp691c5DrUWtKhusvcNtZ5I9wExk='; style-src 'sha256-wZ1I/DDdkcOHbIZ4OBOqcFYAAH73bstZ7yeWsk5SJoc='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -54,6 +54,10 @@ h1 .front { position: relative; z-index: 2; }
 .horizon::before {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: clamp(6px, 1.3vw, 18px);
   background: linear-gradient(transparent, rgba(9,9,18,.22) 50%, rgba(9,9,18,.62));
+}
+.horizon {
+  --cut: linear-gradient(90deg, #000 var(--cut-from, 100%), transparent var(--cut-from, 100%), transparent var(--cut-to, 100%), #000 var(--cut-to, 100%));
+  -webkit-mask-image: var(--cut); mask-image: var(--cut);
 }
 .horizon { position: relative; z-index: 1; height: 2px; background: linear-gradient(90deg, var(--ember), var(--rose) 45%, rgba(180,160,248,.5) 75%, transparent); }
 
@@ -277,6 +281,21 @@ footer .links { margin-left: auto; display: flex; gap: 22px; }
     if (big) { star.style.width = star.style.height = '3px'; star.style.opacity = '.8'; }
     sky.appendChild(star);
   }
+})();
+
+// The horizon and its shadow stop where the last letter of the name stands, so neither
+// shows through the letter: the gap is measured, since the letter's place depends on the font.
+(function () {
+  var letter = document.querySelector('h1 .front'), line = document.querySelector('.horizon');
+  function cut() {
+    var box = letter.getBoundingClientRect(), width = line.getBoundingClientRect().width;
+    if (!width) return;
+    line.style.setProperty('--cut-from', (box.left / width * 100) + '%');
+    line.style.setProperty('--cut-to', (box.right / width * 100) + '%');
+  }
+  cut();
+  addEventListener('resize', cut);
+  addEventListener('load', cut);
 })();
 
 // The list is third-party data: every value goes in as text, never as markup.
