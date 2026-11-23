@@ -1,0 +1,7 @@
+name: duskcode-mobile-agents
+title: "Duskcode Mobile Agents"
+description: "Engineers for Android, iOS and cross-platform mobile apps."
+vendor: duskcode
+kind: agents
+items: [android-engineer, cross-platform-mobile-engineer, ios-engineer, mobile-engineer]
+license: MIT

@@ -23,7 +23,10 @@ BG, INK, MUTED = "#0c0e13", "#f4f5f7", "#8a90a0"
 COVERS = {
     "duskcode-engineering": ("Engineering", "SKILL PACK / DUSKCODE", "#f5a524", "stairs"),
     "duskcode-security": ("Security", "SKILL PACK / DUSKCODE", "#ff4d6d", "shield"),
-    "duskcode-agents": ("Agents", "AGENT PACK / DUSKCODE", "#9b8cff", "orbit"),
+    "duskcode-engineering-agents": ("Engineers", "AGENT PACK / DUSKCODE", "#f5a524", "orbit"),
+    "duskcode-mobile-agents": ("Mobile", "AGENT PACK / DUSKCODE", "#38bdf8", "phone"),
+    "duskcode-testing-agents": ("Testers", "AGENT PACK / DUSKCODE", "#34d399", "rings"),
+    "duskcode-security-agents": ("Security", "AGENT PACK / DUSKCODE", "#ff4d6d", "shield"),
     "ios-simulator": ("Device Simulator", "PLUGIN / DEVICES", "#38bdf8", "phone"),
     "vphone": ("Virtual Phone", "PLUGIN / DEVICES", "#e879f9", "phone2"),
     "telegram": ("Chat Bridge", "PLUGIN / CHAT", "#60a5fa", "bubbles"),

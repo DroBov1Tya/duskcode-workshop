@@ -1,0 +1,7 @@
+name: duskcode-security-agents
+title: "Duskcode Security Agents"
+description: "Security specialists for authorized assessments: web, API, mobile, cloud, infrastructure, Active Directory, application security review and red team."
+vendor: duskcode
+kind: agents
+items: [ad-security-specialist, api-security-specialist, appsec-reviewer, authorized-red-team, cloud-security-specialist, infrastructure-security-specialist, mobile-security-specialist, security-engineer, web-security-specialist]
+license: MIT

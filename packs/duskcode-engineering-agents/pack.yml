@@ -1,0 +1,7 @@
+name: duskcode-engineering-agents
+title: "Duskcode Engineering Agents"
+description: "Engineers for system design, backend, web, databases, infrastructure, networks, concurrency, performance, builds and operations."
+vendor: duskcode
+kind: agents
+items: [api-engineer, architect, backend-engineer, build-release-engineer, concurrency-engineer, database-engineer, devops-engineer, frontend-engineer, infrastructure-engineer, network-engineer, performance-engineer, sre-engineer, web-engineer]
+license: MIT

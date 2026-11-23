@@ -1,0 +1,7 @@
+name: duskcode-testing-agents
+title: "Duskcode Testing Agents"
+description: "Testers and reviewers: QA, API, web, mobile, network protocol and resilience testing, code and accessibility review."
+vendor: duskcode
+kind: agents
+items: [accessibility-reviewer, api-tester, code-reviewer, mobile-tester, network-protocol-tester, qa-engineer, resilience-tester, web-tester]
+license: MIT

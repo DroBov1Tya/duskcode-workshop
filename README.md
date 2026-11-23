@@ -36,7 +36,10 @@ site/                           the page and the signed list (index.json, index.
 | --- | --- | --- | --- | --- |
 | [duskcode-engineering](packs/duskcode-engineering) | skills | Official | duskcode | MIT |
 | [duskcode-security](packs/duskcode-security) | skills | Official | duskcode | MIT |
-| [duskcode-agents](packs/duskcode-agents) | agents | Official | duskcode | MIT |
+| [duskcode-engineering-agents](packs/duskcode-engineering-agents) | agents | Official | duskcode | MIT |
+| [duskcode-mobile-agents](packs/duskcode-mobile-agents) | agents | Official | duskcode | MIT |
+| [duskcode-testing-agents](packs/duskcode-testing-agents) | agents | Official | duskcode | MIT |
+| [duskcode-security-agents](packs/duskcode-security-agents) | agents | Official | duskcode | MIT |
 | [web-builder-skills](packs/web-builder-skills) | skills | Verified | Anthropic ([source](https://github.com/anthropics/skills)) | Apache-2.0 |
 | [dev-workflow-skills](packs/dev-workflow-skills) | skills | Verified | OpenAI ([source](https://github.com/openai/skills)) | Apache-2.0 |
 | [gpu-computing-skills](packs/gpu-computing-skills) | skills | Verified | NVIDIA ([source](https://github.com/NVIDIA/skills)) | CC-BY-4.0 AND Apache-2.0 |
@@ -54,7 +57,7 @@ site/                           the page and the signed list (index.json, index.
 | [tile-kernel-skills](pinned/tile-kernel-skills) | skills, pinned | Verified | NVIDIA ([source](https://github.com/NVIDIA/skills/tree/b0694f6d55b4037ffd414aba5759b59f38380c5e)) | CC-BY-4.0 AND Apache-2.0 |
 | [visual-design-skills](pinned/visual-design-skills) | skills, pinned | Verified | Anthropic ([source](https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba)) | Apache-2.0 |
 
-`duskcode-agents` holds every agent of duskcode, including those it also builds in.
+The four agent packs together hold every agent of duskcode, including those it also builds in.
 Official is duskcode's own work; Verified is somebody else's, checked and signed here.
 The pinned packs are not copied here: duskcode fetches their files from the author's
 repository at the reviewed commit and checks every file's SHA-256 ([docs/mirrors.md](docs/mirrors.md)).

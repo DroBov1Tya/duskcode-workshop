@@ -43,7 +43,10 @@ packs:
     screenshots:
       - {file: 1-skills.webp, caption: "What each assessment skill is for, from its SKILL.md"}
       - {file: 2-web.webp, caption: "The start of the web-security-assessment skill"}
-  duskcode-agents: {categories: [coding, review, security], tags: [agents, roster, review]}
+  duskcode-engineering-agents: {categories: [coding, devops], tags: [agents, architecture, backend, devops]}
+  duskcode-mobile-agents: {categories: [coding], tags: [agents, android, ios, mobile]}
+  duskcode-testing-agents: {categories: [testing, review], tags: [agents, qa, review, accessibility]}
+  duskcode-security-agents: {categories: [security], tags: [agents, pentest, appsec, red-team]}
   web-builder-skills: {categories: [design, coding, testing], tags: [frontend, mcp, web]}
   dev-workflow-skills: {categories: [review, testing, security], tags: [github, ci, playwright, notebooks]}
   gpu-computing-skills: {categories: [coding, data], tags: [cuda, gpu, dataframes]}

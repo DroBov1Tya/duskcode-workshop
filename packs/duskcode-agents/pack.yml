@@ -1,7 +1,0 @@
-name: duskcode-agents
-title: "Duskcode Agents"
-description: "The full roster of Duskcode agents: engineers, testers and security specialists. Some are also built into duskcode itself; this pack holds all of them."
-vendor: duskcode
-kind: agents
-items: [accessibility-reviewer, ad-security-specialist, android-engineer, api-engineer, api-security-specialist, api-tester, appsec-reviewer, architect, authorized-red-team, backend-engineer, build-release-engineer, cloud-security-specialist, code-reviewer, concurrency-engineer, cross-platform-mobile-engineer, database-engineer, devops-engineer, frontend-engineer, infrastructure-engineer, infrastructure-security-specialist, ios-engineer, mobile-engineer, mobile-security-specialist, mobile-tester, network-engineer, network-protocol-tester, performance-engineer, qa-engineer, resilience-tester, security-engineer, sre-engineer, web-engineer, web-security-specialist, web-tester]
-license: MIT
