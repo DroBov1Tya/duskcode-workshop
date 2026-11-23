@@ -2,178 +2,179 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-H7N/LzFQEC2hq/1mLn7EZXn0+MdTXV3obfNpmQGpzsM='; style-src 'sha256-yeIkjsMgY4u2AspSLml47mnbKOBpXORKSRlzkxclMrY='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-0U/yn9lo/4V1bxsTIFs/WxU99u1AR64cU3gQSGXf4Qg='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
 <link rel="icon" href="img/mark-64.png" type="image/png">
 <style>
 :root {
-  --bg: #0e0f18; --panel: #13141f; --surface: #1b1c2a; --raised: #262839; --hover: #20212f;
-  --text: #efedf7; --soft: #aeadc4; --muted: #9695ae; --line: rgba(239,237,247,.08);
-  --accent: #b4a0f8; --on-accent: #13121d; --amber: #ecc46e; --info: #7fb4f5;
-  --meta: 12.5px; --small: 13.75px; --body: 15.2px;
+  --night: #0c0c16; --ground: #11111c; --raised: #1c1c2b; --line: rgba(239,237,247,.10);
+  --text: #efedf7; --soft: #b6b4cb; --muted: #8f8ea8;
+  --violet: #b4a0f8; --ember: #f0b765; --rose: #e08fb0; --green: #7fd6a4;
+  --display: "New York", ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --ease: cubic-bezier(.22,1,.36,1);
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
-body {
-  margin: 0; background: var(--bg); color: var(--text);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: var(--accent); text-decoration: none; }
+body { margin: 0; background: var(--ground); color: var(--text); font: 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--violet); text-decoration: none; }
 a:hover { text-decoration: underline; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; border-radius: 4px; }
 svg { display: block; flex: none; }
-.wrap { max-width: 1248px; margin: 0 auto; padding: 0 16px; }
-@media (min-width: 900px) { .wrap { padding: 0 32px; } }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 900px) { .wrap { padding: 0 40px; } }
 
-/* The sky: violet going to the last light at the horizon, and a few stars. */
+/* The sky at dusk: the last light sits low on the left, where the name sets into the horizon. */
 .sky {
-  position: relative; overflow: hidden;
+  position: relative; z-index: 1;
   background:
-    radial-gradient(120% 70% at 50% 108%, rgba(236,160,90,.30), rgba(180,110,170,.14) 38%, transparent 70%),
-    linear-gradient(#0b0b16, #14132a 60%, #1a1630);
-  border-bottom: 1px solid var(--line);
+    radial-gradient(70% 95% at 16% 100%, rgba(240,183,101,.34), rgba(224,143,176,.15) 42%, transparent 72%),
+    linear-gradient(#090912, #14132a);
 }
 .stars { position: absolute; inset: 0; pointer-events: none; }
-.stars i {
-  position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #dcd6ff;
-  opacity: .5; animation: twinkle 4s ease-in-out infinite;
-}
-@keyframes twinkle { 50% { opacity: .12; } }
-
-nav { display: flex; align-items: center; gap: 8px 22px; padding: 6px 0; position: relative; }
-nav a { display: inline-flex; align-items: center; min-height: 44px; }
-nav .brand { font-weight: 650; font-size: 18px; color: var(--text); margin-right: auto; gap: 10px; }
-nav .brand img { width: 28px; height: 28px; }
-nav .brand b { color: var(--accent); font-weight: 650; }
-nav a.link { color: var(--soft); font-size: 15px; }
+.stars i { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #dcd6ff; opacity: .45; }
+nav { position: relative; display: flex; align-items: center; gap: 4px 26px; padding: 10px 0; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--soft); font-size: 15px; }
+nav .brand { margin-right: auto; gap: 10px; color: var(--text); font-weight: 600; }
 @media (max-width: 560px) { nav a.hide { display: none; } }
-
-.hero { position: relative; padding: 48px 0 40px; text-align: center; }
-h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 18px; font-weight: 680; }
-h1 span { color: var(--amber); }
-.lead { color: var(--soft); font-size: clamp(17px, 2.2vw, 20px); max-width: 640px; margin: 0 auto 28px; }
-.search {
-  display: flex; max-width: 620px; margin: 0 auto; background: rgba(14,15,24,.72);
-  border: 1px solid var(--line); border-radius: 12px; padding: 4px 6px 4px 18px;
+h1 {
+  position: relative; margin: 0; padding-top: clamp(28px, 7vw, 88px);
+  font: 500 clamp(64px, 15.5vw, 212px)/.8 var(--display); letter-spacing: -.035em;
+  color: #fbf3e4; margin-bottom: -.045em;
 }
-.search:focus-within { border-color: var(--accent); }
+.horizon { position: relative; height: 2px; background: linear-gradient(90deg, var(--ember), var(--rose) 45%, rgba(180,160,248,.5) 75%, transparent); }
+
+.intro { padding: clamp(36px, 5vw, 64px) 0 44px; background: var(--night); }
+.intro .wrap { display: grid; gap: 24px 64px; }
+@media (min-width: 900px) { .intro .wrap { grid-template-columns: minmax(0, 1fr) auto; align-items: start; } }
+.lead { margin: 0; max-width: 56ch; color: var(--soft); font-size: clamp(17px, 1.6vw, 20px); line-height: 1.5; }
+.lead b { color: var(--text); font-weight: 600; }
+/* What the signed list says about itself. */
+.manifest { margin: 0; display: grid; grid-template-columns: auto auto; gap: 4px 20px; font-size: 14px; }
+.manifest dt { color: var(--muted); }
+.manifest dd { margin: 0; color: var(--text); font-variant-numeric: tabular-nums; }
+
+.shop { display: flex; flex-direction: column; gap: 28px; padding: 32px 0 72px; }
+.side { display: contents; }
+.index { order: 1; min-width: 0; }
+.results { order: 2; min-width: 0; }
+.install { order: 3; }
+@media (min-width: 900px) {
+  .shop { display: grid; grid-template-columns: 216px minmax(0, 1fr); gap: 0 56px; align-items: start; }
+  .side { display: block; position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto; }
+}
+
+.index h2, .install h2 { margin: 0 0 6px; font: 600 13px/1.4 var(--sans); color: var(--muted); letter-spacing: 0; }
+.index .set + h2 { margin-top: 22px; }
+.set { display: flex; gap: 2px; margin: 0 -20px; padding: 0 20px; overflow-x: auto; scrollbar-width: none; }
+.set button {
+  flex: none; display: flex; align-items: baseline; gap: 8px; min-height: 36px; padding: 6px 10px;
+  border: 0; border-left: 2px solid transparent; background: none; color: var(--soft);
+  font: 15px/1.4 var(--sans); text-align: left; cursor: pointer; white-space: nowrap;
+}
+.set button span { margin-left: auto; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.set button:hover { color: var(--text); }
+.set button[aria-pressed="true"] { color: var(--text); font-weight: 600; border-left-color: var(--ember); background: rgba(240,183,101,.07); }
+@media (min-width: 900px) {
+  .set { flex-direction: column; margin: 0; padding: 0; overflow: visible; }
+  .set button { width: 100%; }
+}
+
+.install { padding-top: 20px; border-top: 1px solid var(--line); }
+@media (min-width: 900px) { .install { margin-top: 26px; } }
+.install ol { margin: 0; padding: 0 0 0 18px; color: var(--soft); font-size: 14px; line-height: 1.5; }
+.install li + li { margin-top: 4px; }
+.install li::marker { color: var(--ember); font-variant-numeric: tabular-nums; }
+.install b { color: var(--text); font-weight: 600; }
+.install p { margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 30px; }
+.search { flex: 1 1 320px; display: flex; border-bottom: 1px solid rgba(239,237,247,.28); }
+.search:focus-within { border-bottom-color: var(--ember); }
 .search input {
-  flex: 1; min-width: 0; min-height: 44px; background: none; border: 0; color: var(--text);
-  font: 16px inherit; padding: 10px 0; outline: none;
+  flex: 1; min-width: 0; min-height: 48px; padding: 8px 0; background: none; border: 0; outline: none;
+  color: var(--text); font: 400 clamp(19px, 2.2vw, 24px)/1.2 var(--display);
 }
 .search input::placeholder { color: var(--muted); }
-.count { color: var(--muted); font-size: 14px; margin: 12px 0 0; min-height: 22px; }
+.count { margin: 0; color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
 
-/* The install path: what to do in the app, since this page installs nothing. */
-.install {
-  max-width: 760px; margin: 24px auto 0; text-align: left;
-  background: rgba(14,15,24,.72); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px;
-}
-.install h2 { font-size: var(--small); font-weight: 600; color: var(--text); margin: 0 0 8px; letter-spacing: 0; }
-.install ol { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 8px; }
-.install li { counter-increment: step; display: flex; gap: 10px; align-items: baseline; color: var(--soft); font-size: var(--small); line-height: 1.45; }
-.install li::before {
-  content: counter(step); flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--raised);
-  color: var(--accent); font-weight: 650; font-size: 12px; display: grid; place-items: center; transform: translateY(-1px);
-}
-.install b { color: var(--text); font-weight: 600; }
-.install p { margin: 10px 0 0; color: var(--muted); font-size: var(--meta); }
-@media (min-width: 760px) { .install ol { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+.group + .group { margin-top: 56px; }
+.group > header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.group h2 { margin: 0; font: 500 clamp(26px, 3vw, 36px)/1.1 var(--display); letter-spacing: -.015em; }
+.group header p { margin: 0 0 0 auto; color: var(--muted); font-size: 14px; }
+.tier { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.t-official { color: var(--ember); }
+.t-verified { color: var(--green); }
+.t-community { color: var(--muted); }
 
-section { padding: 48px 0 64px; border-bottom: 1px solid var(--line); }
-h2 { font-size: clamp(26px, 3.6vw, 34px); letter-spacing: -.015em; margin: 0 0 10px; font-weight: 650; }
-.sub { color: var(--soft); max-width: 640px; margin: 0 0 36px; }
-
-/* One grid, one card: equal heights in a row whatever the text (3.4, 3.5, 7). */
-.items { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 600px) { .items { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 900px) { .items { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 1200px) { .items { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.card {
-  position: relative; display: flex; flex-direction: column; min-width: 0;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-  transition: border-color 160ms var(--ease), background 160ms var(--ease);
-}
-.card:hover { border-color: rgba(180,160,248,.45); background: var(--hover); }
-.card:active { border-color: rgba(180,160,248,.6); background: var(--surface); }
-/* The cover carries its own top radius inside the 1px border. */
-.frame { aspect-ratio: 40 / 21; border-radius: 11px 11px 0 0; overflow: hidden; background: var(--raised); }
-.frame img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.ph { width: 100%; height: 100%; display: grid; place-items: center; background: var(--raised); box-shadow: inset 0 0 0 1px var(--line); color: rgba(150,149,174,.6); border-radius: inherit; }
-.body { display: flex; flex-direction: column; gap: 4px; padding: 12px 12px 8px; }
-.name { display: flex; align-items: center; gap: 8px; height: 22px; }
-.name h3 { flex: 1; min-width: 0; margin: 0; font-size: var(--body); font-weight: 600; line-height: 22px; }
+/* A shelf of covers: the picture is the tile, the words sit under it with no box. */
+.items { display: grid; gap: 34px 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 232px), 1fr)); }
+.official .items { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.card { position: relative; min-width: 0; }
+.frame { aspect-ratio: 40 / 21; border-radius: 6px; overflow: hidden; background: var(--raised); box-shadow: 0 0 0 1px var(--line); }
+.frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card:hover .frame { box-shadow: 0 0 0 1px var(--ember); }
+.ph { width: 100%; height: 100%; display: grid; place-items: center; color: rgba(143,142,168,.6); }
+.card h3 { margin: 12px 0 0; font: 600 16px/1.3 var(--sans); }
+.official .card h3 { font-size: 18px; }
 .open {
   display: block; max-width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit;
   text-align: left; cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.open::after { content: ""; position: absolute; inset: -1px; border-radius: 12px; }
+.card:hover .open { color: var(--ember); }
+.open::after { content: ""; position: absolute; inset: -6px; border-radius: 8px; }
 .open:focus-visible { outline: none; }
-.open:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 2px; }
-.kind, .meta { font-size: var(--meta); color: var(--muted); white-space: nowrap; }
+.open:focus-visible::after { outline: 2px solid var(--ember); outline-offset: 0; }
+.by { margin: 1px 0 0; color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .desc {
-  margin: 0; height: 40px; font-size: var(--small); line-height: 20px; color: var(--muted); overflow: hidden;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow-wrap: anywhere;
+  margin: 8px 0 0; color: var(--soft); font-size: 14px; line-height: 1.45; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow-wrap: anywhere;
 }
-.foot { display: flex; align-items: center; gap: 8px; height: 32px; margin-top: 4px; min-width: 0; }
-.foot .meta { margin-left: auto; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-.tier { display: inline-flex; align-items: center; gap: 4px; font-size: var(--meta); font-weight: 500; white-space: nowrap; }
-.t-official { color: var(--accent); }
-.t-verified { color: #6fcf97; }
-.t-community { color: var(--muted); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
-.chips button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--muted); font: inherit; font-size: var(--small); cursor: pointer; }
-.chips button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
-.chips.cats button { font-size: var(--meta); padding: 4px 10px; }
-.chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.by { margin: 0; font-size: var(--meta); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.empty { grid-column: 1 / -1; color: var(--muted); margin: 0; }
+.empty { margin: 0; color: var(--soft); }
 
-/* An item's details open over the page, so a card never grows. */
 dialog {
-  width: min(640px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 0; overflow: auto;
-  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 12px;
+  width: min(680px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 0; overflow: auto;
+  background: var(--night); color: var(--text); border: 1px solid var(--line); border-radius: 10px;
 }
-dialog::backdrop { background: rgba(5,5,10,.72); }
-.sheet { display: flex; flex-direction: column; gap: 14px; padding: 0 20px 20px; }
-.sheet .frame { flex: none; border-radius: 8px; }
-.bar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: flex-end; margin: 0 -20px; padding: 8px; background: var(--panel); }
-.sheet h2 { font-size: 24px; line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
-.sheet h2 code { font: 14px var(--mono); color: var(--amber); margin-left: 8px; }
-.sheet h3 { margin: 0 0 4px; font-size: var(--small); font-weight: 600; color: var(--soft); }
+dialog::backdrop { background: rgba(5,5,10,.78); }
+.sheet { display: flex; flex-direction: column; gap: 16px; padding: 0 24px 24px; }
+.sheet .frame { flex: none; }
+.bar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: flex-end; margin: 0 -24px; padding: 8px; background: var(--night); }
+.sheet h2 { margin: 0; font: 500 30px/1.15 var(--display); letter-spacing: -.01em; overflow-wrap: anywhere; }
+.sheet h2 code { font: 14px var(--mono); color: var(--muted); margin-left: 10px; letter-spacing: 0; }
+.sheet h3 { margin: 0 0 4px; font: 600 13px/1.4 var(--sans); color: var(--muted); }
 .sheet p, .sheet li { margin: 0; color: var(--soft); font-size: 15px; overflow-wrap: anywhere; }
 .sheet ul { margin: 0; padding-left: 18px; }
-.facts { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: var(--meta); color: var(--muted); }
-.how-to { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.facts { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--soft); }
+.how-to { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .how-to p { flex: 1 1 240px; }
 .how-to code { font: 14px var(--mono); color: var(--text); }
 .btn {
-  min-height: 44px; min-width: 88px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--line);
-  background: transparent; color: var(--text); font: 500 var(--small)/1 inherit; cursor: pointer;
+  min-height: 40px; min-width: 88px; padding: 0 14px; border-radius: 6px; border: 1px solid rgba(239,237,247,.22);
+  background: transparent; color: var(--text); font: 500 14px/1 var(--sans); cursor: pointer;
 }
-.btn:hover { background: var(--raised); }
+.btn:hover { border-color: var(--ember); }
 .source { font-size: 15px; }
 
-.points { display: grid; gap: 28px 36px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-.points h3 { margin: 0 0 6px; font-size: 17px; font-weight: 620; }
-.points h3::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 10px; vertical-align: 2px; }
-.points p { margin: 0; color: var(--soft); font-size: 15.5px; }
-.noscript { color: var(--soft); max-width: 760px; margin: 0; }
+#how { padding: 64px 0 72px; background: var(--night); border-top: 1px solid var(--line); }
+#how h2 { margin: 0 0 36px; max-width: 18ch; font: 500 clamp(30px, 4.4vw, 52px)/1.05 var(--display); letter-spacing: -.02em; }
+.points { margin: 0; display: grid; gap: 28px 56px; }
+@media (min-width: 760px) { .points { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.points div { padding-top: 16px; border-top: 1px solid var(--line); }
+.points dt { font: 500 22px/1.25 var(--display); }
+.points dd { margin: 6px 0 0; max-width: 52ch; color: var(--soft); }
+.noscript { color: var(--soft); max-width: 70ch; margin: 0 0 24px; }
 
-footer { padding: 34px 0 48px; color: var(--muted); font-size: 14.5px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
-footer span { margin-right: auto; }
+footer { padding: 30px 0 48px; color: var(--muted); font-size: 14px; background: var(--night); border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer p { margin: 0; max-width: 72ch; }
+footer p:first-child { flex: 1 1 100%; color: var(--soft); }
+footer .links { margin-left: auto; display: flex; gap: 22px; }
 
-@media (prefers-reduced-motion: reduce) {
-  .stars i { animation: none; }
-  html { scroll-behavior: auto; }
-  .card { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -181,59 +182,76 @@ footer span { margin-right: auto; }
   <div class="stars" aria-hidden="true"></div>
   <div class="wrap">
     <nav aria-label="Site">
-      <a class="brand" href="./"><img src="img/mark-64.png" width="28" height="28" alt=""><span><b>Dusk</b>code Workshop</span></a>
-      <a class="link hide" href="#how">How it works</a>
-      <a class="link hide" href="https://drobov1tya.github.io/dusk_code/">duskcode</a>
-      <a class="link" href="https://github.com/DroBov1Tya/duskcode-workshop">GitHub</a>
+      <a class="brand" href="./"><img src="img/mark-64.png" width="28" height="28" alt=""><span>duskcode</span></a>
+      <a class="hide" href="#how">How it is checked</a>
+      <a class="hide" href="https://drobov1tya.github.io/dusk_code/">The app</a>
+      <a href="https://github.com/DroBov1Tya/duskcode-workshop">GitHub</a>
     </nav>
-    <div class="hero">
-      <h1>The <span>Workshop</span> of duskcode</h1>
-      <p class="lead">Plugins, skills, packs and agents. A plugin runs in its own sandbox, sees none of your keys and reaches only the sites it names; skills and agents are text.</p>
-      <label class="search" hidden><input id="search" type="search" placeholder="Search the Workshop" autocomplete="off" aria-label="Search the Workshop"></label>
-      <div class="chips" id="chips" role="group" aria-label="Show" hidden></div>
-      <div class="chips cats" id="cats" role="group" aria-label="Category" hidden></div>
-      <p class="count" id="count" aria-live="polite"></p>
-      <div class="install" role="group" aria-labelledby="install-title">
-        <h2 id="install-title">Install in duskcode</h2>
-        <ol>
-          <li><span>Open <b>Plugins</b>, then <b>Workshop</b>.</span></li>
-          <li><span>Search the item's name.</span></li>
-          <li><span>Read what it may access, then <b>Install</b>.</span></li>
-        </ol>
-        <p>This page installs nothing. The app checks the signed list and every package itself.</p>
-      </div>
-    </div>
+    <h1>Workshop</h1>
   </div>
+  <div class="horizon"></div>
 </header>
 
-<main>
-<section aria-label="Items">
+<div class="intro">
   <div class="wrap">
-    <noscript><p class="noscript">This is the Workshop of duskcode: plugins, skills, packs and agents on a list signed with a key built into duskcode. Drawing the list here needs JavaScript; the list itself is <a href="index.json">index.json</a>. To install an item, open duskcode, go to Plugins, then Workshop, and search its name.</p></noscript>
-    <div class="items" id="items"></div>
+    <p class="lead">Plugins, agent packs, skill packs and connectors for duskcode. <b>Nothing here installs from this page:</b> the app reads the same signed list and checks every package itself.</p>
+    <dl class="manifest" id="manifest" hidden></dl>
   </div>
-</section>
+</div>
+
+<main>
+<div class="wrap">
+  <noscript><p class="noscript">Drawing the list here needs JavaScript; the list itself is <a href="index.json">index.json</a>. To install an item, open duskcode, go to Plugins, then Workshop, and search its name.</p></noscript>
+  <div class="shop">
+    <div class="side">
+      <div class="index" id="index" hidden>
+        <h2 id="kind-title">Kind</h2>
+        <div class="set" id="chips" role="group" aria-labelledby="kind-title"></div>
+        <h2 id="cat-title">Category</h2>
+        <div class="set" id="cats" role="group" aria-labelledby="cat-title"></div>
+      </div>
+      <div class="install" role="group" aria-labelledby="install-title">
+        <h2 id="install-title">To install one</h2>
+        <ol>
+          <li>In duskcode open <b>Plugins</b>, then <b>Workshop</b>.</li>
+          <li>Search the item's name.</li>
+          <li>Read what it may access, then <b>Install</b>.</li>
+        </ol>
+      </div>
+    </div>
+    <section class="results" aria-label="Items">
+      <div class="tools">
+        <label class="search" hidden><input id="search" type="search" placeholder="Search by name, author or tag" autocomplete="off" aria-label="Search the Workshop"></label>
+        <p class="count" id="count" aria-live="polite"></p>
+      </div>
+      <div id="items"></div>
+    </section>
+  </div>
+</div>
+
 <section id="how">
   <div class="wrap">
-    <h2>How it works</h2>
-    <p class="sub">The app checks every item before it installs one.</p>
-    <div class="points">
-      <div><h3>Signed list</h3><p>The list of this page is signed with a key built into duskcode. A list changed on the way is refused.</p></div>
-      <div><h3>Checked package</h3><p>Every package has its size and SHA-256 in the signed list, and unpacks only into its own folder.</p></div>
-      <div><h3>What it may do</h3><p>You see a plugin's permissions before it is installed. An update that asks for more is switched off until you allow it.</p></div>
-      <div><h3>Your keys stay yours</h3><p>A plugin's own token is put into its requests by duskcode, only for the site it was given for.</p></div>
-    </div>
+    <h2>What the app checks before it installs anything</h2>
+    <dl class="points">
+      <div><dt>The list is signed</dt><dd>The list of this page is signed with a key built into duskcode. A list changed on the way is refused.</dd></div>
+      <div><dt>Every package is checked</dt><dd>Each package has its size and SHA-256 in the signed list, and unpacks only into its own folder.</dd></div>
+      <div><dt>You see what it may do</dt><dd>A plugin's permissions are shown before it is installed. An update that asks for more is switched off until you allow it.</dd></div>
+      <div><dt>Your keys stay yours</dt><dd>A plugin's own token is put into its requests by duskcode, only for the site it was given for.</dd></div>
+    </dl>
   </div>
 </section>
 </main>
 
-<div class="wrap">
-  <footer>
-    <span>duskcode Workshop · MIT · no trackers, no third-party scripts or fonts · Other companies' names say only what an item works with; duskcode is not affiliated with or endorsed by them.</span>
-    <a href="https://github.com/DroBov1Tya/duskcode-workshop">Source</a>
-    <a href="https://github.com/DroBov1Tya/dusk_code/blob/main/docs/plugins.md">Writing a plugin</a>
-  </footer>
-</div>
+<footer>
+  <div class="wrap">
+    <p>Official is work by duskcode. Verified is somebody else's work, checked and signed here. Other companies' names say only what an item works with; duskcode is not affiliated with or endorsed by them.</p>
+    <p>MIT. No trackers, no third-party scripts or fonts.</p>
+    <div class="links">
+      <a href="https://github.com/DroBov1Tya/duskcode-workshop">Source</a>
+      <a href="https://github.com/DroBov1Tya/dusk_code/blob/main/docs/plugins.md">Writing a plugin</a>
+    </div>
+  </div>
+</footer>
 
 <dialog id="item" aria-labelledby="item-name"></dialog>
 
@@ -241,11 +259,10 @@ footer span { margin-right: auto; }
 (function () {
   var sky = document.querySelector('.stars'), seed = 7;
   function next() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
-  for (var n = 0; n < 46; n++) {
+  for (var n = 0; n < 34; n++) {
     var star = document.createElement('i'), big = next() > 0.86;
     star.style.left = (next() * 100) + '%';
-    star.style.top = (next() * 58) + '%';
-    star.style.animationDelay = (-next() * 4) + 's';
+    star.style.top = (next() * 62) + '%';
     if (big) { star.style.width = star.style.height = '3px'; star.style.opacity = '.8'; }
     sky.appendChild(star);
   }
@@ -371,23 +388,16 @@ function cover(item) {
 function card(item) {
   var node = el('article', 'card');
   node.appendChild(cover(item));
-  var body = el('div', 'body'), name = el('div', 'name'), title = el('h3');
-  var open = el('button', 'open', item.name);
+  var title = el('h3'), open = el('button', 'open', item.name);
   open.type = 'button';
   open.title = open.textContent;
   open.setAttribute('aria-haspopup', 'dialog');
   open.addEventListener('click', function () { details(item, open); });
   title.appendChild(open);
-  name.appendChild(title);
-  name.appendChild(el('span', 'kind', kindLabel(item)));
-  body.appendChild(name);
-  if (typeof item.author === 'string' && item.author) body.appendChild(el('p', 'by', 'by ' + item.author));
-  body.appendChild(el('p', 'desc', item.description || ''));
-  var foot = el('div', 'foot');
-  foot.appendChild(tierMark(item));
-  if (catsOf(item).length) foot.appendChild(el('span', 'meta', catsOf(item).map(function (c) { return CATS[c]; }).join(' · ')));
-  body.appendChild(foot);
-  node.appendChild(body);
+  node.appendChild(title);
+  var author = typeof item.author === 'string' && item.author ? ', by ' + item.author : '';
+  node.appendChild(el('p', 'by', kindLabel(item) + author));
+  node.appendChild(el('p', 'desc', item.description || ''));
   return node;
 }
 
@@ -443,13 +453,13 @@ function details(item, from) {
   facts.appendChild(el('span', '', kindLabel(item) + (kind === 'pack' ? ' of ' + items.length : '')));
   if (typeof item.author === 'string' && item.author) facts.appendChild(el('span', '', 'by ' + item.author));
   if (typeof item.license === 'string' && item.license) facts.appendChild(el('span', '', item.license));
-  if (item.category) facts.appendChild(el('span', '', item.category));
+  if (catsOf(item).length) facts.appendChild(el('span', '', catsOf(item).map(function (c) { return CATS[c]; }).join(', ')));
   sheet.appendChild(facts);
   sheet.appendChild(el('p', '', item.description || ''));
   if (kind === 'plugin') {
     var systems = arr(item.platforms).map(function (s) { return own(SYSTEMS, s) || s; });
     var clients = arr(item.clients).map(function (c) { return own(CLIENTS, c) || c; });
-    sheet.appendChild(block('Runs on', (systems.length ? systems.join(', ') : 'Every system') + ' · ' + (clients.length ? clients.join(', ') : 'every client')));
+    sheet.appendChild(block('Runs on', (systems.length ? systems.join(', ') : 'Every system') + '; ' + (clients.length ? clients.join(', ') : 'every client')));
     var lines = consent(item);
     sheet.appendChild(block('What it may access', lines.length ? list(lines) : 'Nothing beyond its own folder.'));
   } else {
@@ -483,12 +493,18 @@ function installStep(name) {
   return box;
 }
 
-var SHOW = [['all', 'All'], ['plugin', 'Plugins'], ['agents', 'Agents'], ['pack', 'Skill packs'], ['connector', 'Connectors']];
+var SHOW = [['all', 'Everything'], ['plugin', 'Plugins'], ['agents', 'Agent packs'], ['pack', 'Skill packs'], ['connector', 'Connectors']];
 var chosen = 'all';
 var chosenCat = 'all';
 var CATS = { coding: 'Coding', review: 'Review', testing: 'Testing', security: 'Security', research: 'Research',
   writing: 'Writing', data: 'Data', devops: 'DevOps', design: 'Design', productivity: 'Productivity',
   devices: 'Devices', communication: 'Communication' };
+// The shelves, in the order they are drawn: whose work an item is comes before what it is.
+var SHELVES = [
+  ['official', 'Made by duskcode', 'Written and kept up by the people who make the app.'],
+  ['verified', 'By others, checked here', 'Somebody else\u2019s work, reviewed and signed into this list.'],
+  ['community', 'On this list', 'A copy of the page on another host serves its own list.']
+];
 
 // Format 3 files an item under up to three categories; format 2 under one.
 function catsOf(p) {
@@ -496,39 +512,54 @@ function catsOf(p) {
   return list.filter(function (c) { return own(CATS, c); });
 }
 
+function isKind(p, kind) {
+  if (kind === 'all') return true;
+  if (kind === 'agents') return isAgents(p);
+  if (kind === 'pack') return kindOf(p) === 'pack' && !isAgents(p);
+  return kindOf(p) === kind;
+}
+
 function inChoice(p) {
-  if (chosenCat !== 'all' && catsOf(p).indexOf(chosenCat) === -1) return false;
-  if (chosen === 'all') return true;
-  if (chosen === 'agents') return isAgents(p);
-  if (chosen === 'pack') return kindOf(p) === 'pack' && !isAgents(p);
-  return kindOf(p) === chosen;
+  return isKind(p, chosen) && (chosenCat === 'all' || catsOf(p).indexOf(chosenCat) !== -1);
 }
 
-function drawChips() {
-  var box = document.getElementById('chips');
-  box.replaceChildren.apply(box, SHOW.map(function (pair) {
-    var b = el('button', '', pair[1]);
-    b.type = 'button';
-    b.setAttribute('aria-pressed', String(chosen === pair[0]));
-    b.addEventListener('click', function () { chosen = pair[0]; drawChips(); show(); });
-    return b;
-  }));
-  box.hidden = false;
+// One row of the index: a name, how many items it holds, pressed when it is the choice.
+function pick(label, count, pressed, choose) {
+  var b = el('button', '', label);
+  b.type = 'button';
+  b.appendChild(el('span', '', count));
+  b.setAttribute('aria-pressed', String(pressed));
+  b.addEventListener('click', function () { choose(); drawIndex(); show(); });
+  return b;
 }
 
-function drawCats() {
-  var box = document.getElementById('cats'), count = {};
+function drawIndex() {
+  var kinds = document.getElementById('chips'), cats = document.getElementById('cats'), count = {};
+  kinds.replaceChildren.apply(kinds, SHOW
+    .map(function (pair) { return [pair, all.filter(function (p) { return isKind(p, pair[0]); }).length]; })
+    .filter(function (row) { return row[1]; })
+    .map(function (row) { return pick(row[0][1], row[1], chosen === row[0][0], function () { chosen = row[0][0]; }); }));
   all.forEach(function (p) { catsOf(p).forEach(function (c) { count[c] = (count[c] || 0) + 1; }); });
-  var keys = Object.keys(CATS).filter(function (c) { return count[c]; });
-  var pairs = [['all', 'All categories']].concat(keys.map(function (c) { return [c, CATS[c] + ' ' + count[c]]; }));
-  box.replaceChildren.apply(box, pairs.map(function (pair) {
-    var b = el('button', '', pair[1]);
-    b.type = 'button';
-    b.setAttribute('aria-pressed', String(chosenCat === pair[0]));
-    b.addEventListener('click', function () { chosenCat = pair[0]; drawCats(); show(); });
-    return b;
-  }));
-  box.hidden = false;
+  var rows = [pick('Every category', all.length, chosenCat === 'all', function () { chosenCat = 'all'; })];
+  Object.keys(CATS).filter(function (c) { return count[c]; }).forEach(function (c) {
+    rows.push(pick(CATS[c], count[c], chosenCat === c, function () { chosenCat = c; }));
+  });
+  cats.replaceChildren.apply(cats, rows);
+  document.getElementById('index').hidden = false;
+}
+
+function shelf(row, items) {
+  var group = el('section', 'group ' + row[0]), head = el('header'), grid = el('div', 'items');
+  head.appendChild(el('h2', '', row[1]));
+  var mark = el('span', 'tier t-' + row[0]);
+  mark.appendChild(glyph(row[0]));
+  mark.appendChild(el('span', '', TIERS[row[0]]));
+  head.appendChild(mark);
+  head.appendChild(el('p', '', row[2]));
+  group.appendChild(head);
+  grid.replaceChildren.apply(grid, items.map(card));
+  group.appendChild(grid);
+  return group;
 }
 
 function show() {
@@ -537,10 +568,22 @@ function show() {
     var text = [p.name, p.description, p.category, p.author, kindLabel(p)].concat(arr(p.tags)).join(' ');
     return inChoice(p) && (!words || text.toLowerCase().indexOf(words) !== -1);
   });
-  var grid = document.getElementById('items');
-  grid.replaceChildren.apply(grid, shown.map(card));
-  if (!shown.length) grid.appendChild(el('p', 'empty', all.length ? 'Nothing matches.' : 'No items yet.'));
-  document.getElementById('count').textContent = shown.length + ' of ' + all.length + ' items';
+  var box = document.getElementById('items');
+  box.replaceChildren.apply(box, SHELVES
+    .map(function (row) { return [row, shown.filter(function (p) { return tierOf(p) === row[0]; })]; })
+    .filter(function (pair) { return pair[1].length; })
+    .map(function (pair) { return shelf(pair[0], pair[1]); }));
+  if (!shown.length) box.appendChild(el('p', 'empty', all.length ? 'Nothing matches. Clear the search, or pick Everything and Every category.' : 'The list is empty.'));
+  document.getElementById('count').textContent = shown.length === all.length ? all.length + ' items' : shown.length + ' of ' + all.length + ' items';
+}
+
+// What the list says about itself: its serial and how much it holds.
+function manifest(index) {
+  var box = document.getElementById('manifest'), rows = [];
+  if (typeof index.serial === 'number') rows.push(['Signed list', 'No. ' + index.serial]);
+  rows.push(['Items', all.length]);
+  rows.forEach(function (row) { box.appendChild(el('dt', '', row[0])); box.appendChild(el('dd', '', row[1])); });
+  box.hidden = false;
 }
 
 function failed(text) {
@@ -562,8 +605,8 @@ fetch('index.json', { cache: 'no-cache' })
     all = (Array.isArray(index.plugins) ? index.plugins : [])
       .filter(function (p) { return p && typeof p.name === 'string'; })
       .sort(function (a, b) { return a.name < b.name ? -1 : 1; });
-    drawChips();
-    drawCats();
+    drawIndex();
+    manifest(index);
     show();
   })
   .catch(function () { failed('The list did not load. Try again in a moment.'); });
