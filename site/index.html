@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I303hVNnoPS+nx1Tp691c5DrUWtKhusvcNtZ5I9wExk='; style-src 'sha256-wZ1I/DDdkcOHbIZ4OBOqcFYAAH73bstZ7yeWsk5SJoc='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-mwZUr0K24q2yZp8VoxKM0y3IbQM2qxGWrLy6KWDRuoE='; style-src 'sha256-wZ1I/DDdkcOHbIZ4OBOqcFYAAH73bstZ7yeWsk5SJoc='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -283,15 +283,35 @@ footer .links { margin-left: auto; display: flex; gap: 22px; }
   }
 })();
 
-// The horizon and its shadow stop where the last letter of the name stands, so neither
-// shows through the letter: the gap is measured, since the letter's place depends on the font.
+// The horizon stops inside the strokes of the name's last letter, so it touches the letter
+// on both sides and never shows through it. Where the strokes are depends on the font, so
+// the letter is drawn off screen and the row the line crosses is read back.
 (function () {
   var letter = document.querySelector('h1 .front'), line = document.querySelector('.horizon');
+  var probe = document.createElement('span'), canvas = document.createElement('canvas');
+  probe.style.cssText = 'display:inline-block;width:0;height:0;vertical-align:baseline';
+  letter.appendChild(probe);
   function cut() {
-    var box = letter.getBoundingClientRect(), width = line.getBoundingClientRect().width;
-    if (!width) return;
-    line.style.setProperty('--cut-from', (box.left / width * 100) + '%');
-    line.style.setProperty('--cut-to', (box.right / width * 100) + '%');
+    var box = letter.getBoundingClientRect(), bar = line.getBoundingClientRect();
+    var style = getComputedStyle(letter), size = parseFloat(style.fontSize), pad = Math.ceil(size / 2);
+    if (!bar.width || !size) return;
+    canvas.width = Math.ceil(box.width) + pad * 2;
+    canvas.height = pad * 2;
+    var pen = canvas.getContext('2d', { willReadFrequently: true });
+    pen.font = style.fontStyle + ' ' + style.fontWeight + ' ' + style.fontSize + ' ' + style.fontFamily;
+    pen.letterSpacing = style.letterSpacing;
+    pen.textBaseline = 'alphabetic';
+    pen.fillText('p', pad, pad);
+    // The row of the line, counted from the letter's baseline.
+    var row = Math.round(pad + bar.top + 1 - probe.getBoundingClientRect().bottom);
+    if (row < 0 || row >= canvas.height) return;
+    var ink = pen.getImageData(0, row, canvas.width, 1).data, first = -1, last = -1;
+    for (var x = 0; x < canvas.width; x++) {
+      if (ink[x * 4 + 3] > 128) { if (first < 0) first = x; last = x; }
+    }
+    if (first < 0) return;
+    line.style.setProperty('--cut-from', ((box.left + first - pad + 1.5) / bar.width * 100) + '%');
+    line.style.setProperty('--cut-to', ((box.left + last - pad - 0.5) / bar.width * 100) + '%');
   }
   cut();
   addEventListener('resize', cut);
