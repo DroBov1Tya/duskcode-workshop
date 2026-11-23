@@ -1,7 +1,7 @@
 {
   "format": 2,
-  "serial": 3,
-  "expires": "2027-05-17T13:29:25Z",
+  "serial": 4,
+  "expires": "2027-05-22T18:56:39Z",
   "plugins": [
     {
       "name": "ios-simulator",
@@ -46,8 +46,8 @@
         "sha256": "18e63ddb106c9a3e466be82ceb6dc38bfdf2ff60dc1191a45a8083afd032fc88",
         "size": 18310
       },
-      "created": "2026-11-15T07:13:16Z",
-      "updated": "2026-11-16T05:49:29Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-19T07:04:09Z"
     },
     {
       "name": "telegram",
@@ -83,7 +83,7 @@
           "size": 2773848
         }
       ],
-      "category": "chat",
+      "category": "communication",
       "tags": [
         "telegram",
         "bot",
@@ -94,8 +94,8 @@
         "sha256": "ab349537ab9d791d17cdc547d98cda04a81b2b605d0db82dff1cc280c986f776",
         "size": 14984
       },
-      "created": "2026-11-14T17:12:19Z",
-      "updated": "2026-11-14T17:12:19Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-18T16:26:11Z"
     },
     {
       "name": "vphone",
@@ -142,46 +142,110 @@
         "sha256": "4250f2af88ae616c2632e5b7943df3a341847b3e6303777a0bd3c6be41b0d7f1",
         "size": 18238
       },
-      "created": "2026-11-15T07:13:16Z",
-      "updated": "2026-11-16T05:49:29Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-18T16:26:11Z"
     },
     {
-      "name": "anthropic",
-      "version": "1.20261117.0",
+      "name": "dev-workflow-skills",
+      "version": "1.20261119.0",
       "kind": "pack",
-      "description": "Skills by Anthropic: frontend design, building MCP servers and testing web apps. Markdown-only; executable helpers removed.",
-      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/anthropic",
+      "description": "Skills for GitHub review and CI fixing, Jupyter notebooks, browser automation with Playwright, security best practices and threat modeling, written by OpenAI for Codex and published under Apache-2.0. Markdown-only; executable helpers removed. Not affiliated with or endorsed by OpenAI.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/dev-workflow-skills",
       "downloads": [
         {
           "os": "any",
           "arch": "any",
-          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/anthropic-v1.20261117.0/anthropic-1.20261117.0.tar.gz",
-          "sha256": "c8b8c515f72d6a5831710e3ffa029823e8f032fa4ee68d48db3ba68d849a8b7b",
-          "size": 50131
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/dev-workflow-skills-v1.20261119.0/dev-workflow-skills-1.20261119.0.tar.gz",
+          "sha256": "26cbf1efbc88b850dac9d50ac6892edf91a38daa0611aac5e4ee6fa3c0314db1",
+          "size": 146881
         }
       ],
       "skills": [
-        "frontend-design",
-        "mcp-builder",
-        "webapp-testing"
+        "gh-address-comments",
+        "gh-fix-ci",
+        "jupyter-notebook",
+        "playwright",
+        "security-best-practices",
+        "security-threat-model"
       ],
-      "category": "design",
+      "category": "review",
       "tags": [
-        "frontend",
-        "mcp",
-        "vendor"
+        "github",
+        "ci",
+        "playwright",
+        "notebooks"
+      ],
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-19T23:16:11Z"
+    },
+    {
+      "name": "duskcode-agents",
+      "version": "1.20261119.0",
+      "kind": "pack",
+      "description": "The full roster of Duskcode agents: engineers, testers and security specialists. Some are also built into duskcode itself; this pack holds all of them.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-agents",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-agents-v1.20261119.0/duskcode-agents-1.20261119.0.tar.gz",
+          "sha256": "98494bd94db0e20031482f5ee8e6263ee8e370699e3b87a7fe8b6ed84d030df3",
+          "size": 14078
+        }
+      ],
+      "skills": [
+        "accessibility-reviewer",
+        "ad-security-specialist",
+        "android-engineer",
+        "api-engineer",
+        "api-security-specialist",
+        "api-tester",
+        "appsec-reviewer",
+        "architect",
+        "authorized-red-team",
+        "backend-engineer",
+        "build-release-engineer",
+        "cloud-security-specialist",
+        "code-reviewer",
+        "concurrency-engineer",
+        "cross-platform-mobile-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "frontend-engineer",
+        "infrastructure-engineer",
+        "infrastructure-security-specialist",
+        "ios-engineer",
+        "mobile-engineer",
+        "mobile-security-specialist",
+        "mobile-tester",
+        "network-engineer",
+        "network-protocol-tester",
+        "performance-engineer",
+        "qa-engineer",
+        "resilience-tester",
+        "security-engineer",
+        "sre-engineer",
+        "web-engineer",
+        "web-security-specialist",
+        "web-tester"
+      ],
+      "category": "coding",
+      "tags": [
+        "agents",
+        "roster",
+        "review"
       ],
       "cover": {
-        "path": "covers/anthropic.webp",
-        "sha256": "2fd7f462db9b2c7f56135778ee86cd095166e6d14204565b154fd7dada844fd2",
-        "size": 15210
+        "path": "covers/duskcode-agents.webp",
+        "sha256": "af076ccab46513adf23610b09c6557ee6ef9810368c5d2d12a540218af920f2d",
+        "size": 23568
       },
-      "created": "2026-11-17T16:15:45Z",
-      "updated": "2026-11-17T16:15:45Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-19T23:16:20Z"
     },
     {
       "name": "duskcode-engineering",
-      "version": "1.20261117.0",
+      "version": "1.20261118.0",
       "kind": "pack",
       "description": "Habits for sound engineering work: design patterns, domain structure, a project tree, spikes, systematic debugging and test-driven development.",
       "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-engineering",
@@ -189,7 +253,7 @@
         {
           "os": "any",
           "arch": "any",
-          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-engineering-v1.20261117.0/duskcode-engineering-1.20261117.0.tar.gz",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-engineering-v1.20261118.0/duskcode-engineering-1.20261118.0.tar.gz",
           "sha256": "52dd9254d12753b4e9d80787293bb14397bf388aa6e5fd2bfc1bc8594e3b5ba3",
           "size": 12904
         }
@@ -202,7 +266,7 @@
         "systematic-debugging",
         "test-driven-development"
       ],
-      "category": "engineering",
+      "category": "coding",
       "tags": [
         "design",
         "debugging",
@@ -233,79 +297,649 @@
           "caption": "The start of the systematic-debugging skill"
         }
       ],
-      "created": "2026-11-17T16:15:45Z",
-      "updated": "2026-11-17T16:15:45Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-18T16:26:11Z"
     },
     {
-      "name": "nvidia",
-      "version": "1.20261117.0",
+      "name": "duskcode-security",
+      "version": "1.20261118.0",
       "kind": "pack",
-      "description": "Skills by NVIDIA for GPU work: finding CUDA bugs with Compute Sanitizer and accelerating DataFrames with cuDF. Evals and the upstream signature file removed.",
-      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/nvidia",
+      "description": "Authorized security assessment workflows: general, web, API, mobile, Active Directory and infrastructure.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-security",
       "downloads": [
         {
           "os": "any",
           "arch": "any",
-          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/nvidia-v1.20261117.0/nvidia-1.20261117.0.tar.gz",
-          "sha256": "836774d5fa289d6eb0f5fcc76f6602e3d0d66a05d2cadabccbbcfc3bd22da0f0",
-          "size": 55751
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-security-v1.20261118.0/duskcode-security-1.20261118.0.tar.gz",
+          "sha256": "79f38130a2c6ea3569dab4823a343287e4dcc41898bd34485179da52855e6c0b",
+          "size": 13061
+        }
+      ],
+      "skills": [
+        "security-assessment",
+        "web-security-assessment",
+        "api-security-assessment",
+        "mobile-security-assessment",
+        "ad-security-assessment",
+        "infrastructure-security-assessment"
+      ],
+      "category": "security",
+      "tags": [
+        "pentest",
+        "assessment",
+        "appsec"
+      ],
+      "cover": {
+        "path": "covers/duskcode-security.webp",
+        "sha256": "76a66d3462004d08d477e2498af9b4684624f868a951f14c11332df2c8d3ea8a",
+        "size": 22500
+      },
+      "screenshots": [
+        {
+          "path": "screenshots/duskcode-security/1-skills.webp",
+          "sha256": "bc5afa1d484959b55835fcc87b046d8db8466353186d299a2424794e75c7c5b0",
+          "size": 20916,
+          "caption": "What each assessment skill is for, from its SKILL.md"
+        },
+        {
+          "path": "screenshots/duskcode-security/2-web.webp",
+          "sha256": "6c5ad28649ebff418c197551b3423889424a255d152a8e1dbeac9a70ce7e0265",
+          "size": 29976,
+          "caption": "The start of the web-security-assessment skill"
+        }
+      ],
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-18T16:26:11Z"
+    },
+    {
+      "name": "gpu-computing-skills",
+      "version": "1.20261118.0",
+      "kind": "pack",
+      "description": "Skills for GPU work: finding CUDA bugs with Compute Sanitizer and accelerating DataFrames with cuDF, written by NVIDIA and published under CC-BY-4.0 and Apache-2.0. Evals and the upstream signature file removed. Not affiliated with or endorsed by NVIDIA.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/gpu-computing-skills",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/gpu-computing-skills-v1.20261118.0/gpu-computing-skills-1.20261118.0.tar.gz",
+          "sha256": "a4728c0d2ad24d48ad509095063e81a605c0ad0b95f72ab735c03dd35f17619a",
+          "size": 55891
         }
       ],
       "skills": [
         "compute-sanitizer-diagnose-cuda-bugs",
         "accelerated-computing-cudf"
       ],
-      "category": "engineering",
+      "category": "coding",
       "tags": [
         "cuda",
         "gpu",
-        "vendor"
+        "dataframes"
       ],
-      "cover": {
-        "path": "covers/nvidia.webp",
-        "sha256": "00cfd86519915fb7ce73708eb390356a889ae00440c893b5285cc212492aa5be",
-        "size": 14206
-      },
-      "created": "2026-11-17T16:15:45Z",
-      "updated": "2026-11-17T16:15:45Z"
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-18T16:26:11Z"
     },
     {
-      "name": "openai",
-      "version": "1.20261117.0",
+      "name": "web-builder-skills",
+      "version": "1.20261119.0",
       "kind": "pack",
-      "description": "Skills by OpenAI: GitHub review and CI fixing, Jupyter notebooks, Playwright, security best practices and threat modeling.",
-      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/openai",
+      "description": "Skills for frontend design, building MCP servers and testing web apps, written by Anthropic for Claude and published under Apache-2.0. Markdown-only; executable helpers removed. Not affiliated with or endorsed by Anthropic.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/web-builder-skills",
       "downloads": [
         {
           "os": "any",
           "arch": "any",
-          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/openai-v1.20261117.0/openai-1.20261117.0.tar.gz",
-          "sha256": "8d85a0fdef76a75554d57f53ddf35ea4b8cffff38b53747d64149c4c6ab08039",
-          "size": 146296
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/web-builder-skills-v1.20261119.0/web-builder-skills-1.20261119.0.tar.gz",
+          "sha256": "b82a33ac450d4b86e770082e80a4a3bc9d41c35d3e19860d2276f4e343b44354",
+          "size": 50477
         }
       ],
       "skills": [
-        "gh-address-comments",
-        "gh-fix-ci",
-        "jupyter-notebook",
-        "playwright",
-        "security-best-practices",
-        "security-threat-model"
+        "frontend-design",
+        "mcp-builder",
+        "webapp-testing"
       ],
-      "category": "testing",
+      "category": "design",
       "tags": [
-        "github",
-        "ci",
-        "playwright",
-        "vendor"
+        "frontend",
+        "mcp",
+        "web"
+      ],
+      "created": "2026-11-18T16:26:11Z",
+      "updated": "2026-11-19T23:16:11Z"
+    },
+    {
+      "name": "atlassian",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Jira issues and Confluence pages of an Atlassian Cloud site. Atlassian's own server; you sign in with your Atlassian account. Not affiliated with or endorsed by Atlassian.",
+      "homepage": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/",
+      "server": {
+        "url": "https://mcp.atlassian.com/v2/mcp",
+        "auth": "oauth",
+        "docs": "https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/",
+        "run_by": "vendor",
+        "reaches": "the Jira issues and Confluence pages your Atlassian account can see"
+      },
+      "category": "productivity",
+      "tags": [
+        "jira",
+        "confluence",
+        "issues",
+        "wiki"
       ],
       "cover": {
-        "path": "covers/openai.webp",
-        "sha256": "a9b56b7d00d000b2ba7c75b4d3b40eb3c53f022971d3a3d4e6c5d2900de7fbde",
-        "size": 23350
+        "path": "covers/atlassian.png",
+        "sha256": "86f7f262e57d889cb30a9afcd08d8f437eec87b48274e3e7111070bcff0af325",
+        "size": 42046
       },
-      "created": "2026-11-17T16:15:45Z",
-      "updated": "2026-11-17T16:15:45Z"
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "cloudflare",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Workers, DNS, storage and the rest of a Cloudflare account through its API. Cloudflare's own server; you sign in and choose what it may do. Not affiliated with or endorsed by Cloudflare.",
+      "homepage": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+      "server": {
+        "url": "https://mcp.cloudflare.com/mcp",
+        "auth": "oauth",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+        "run_by": "vendor",
+        "reaches": "the Cloudflare account and permissions you grant"
+      },
+      "category": "devops",
+      "tags": [
+        "workers",
+        "dns",
+        "edge",
+        "api"
+      ],
+      "cover": {
+        "path": "covers/cloudflare.png",
+        "sha256": "5338dcc7f737131811f321f5fa0eeada26425b797dc4c29ea6b1d3d390591532",
+        "size": 70903
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "cloudflare-docs",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Search the Cloudflare developer documentation. Cloudflare's own server; no account needed. Not affiliated with or endorsed by Cloudflare.",
+      "homepage": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+      "server": {
+        "url": "https://docs.mcp.cloudflare.com/mcp",
+        "auth": "none",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+        "run_by": "vendor",
+        "reaches": "the public Cloudflare documentation"
+      },
+      "category": "research",
+      "tags": [
+        "docs",
+        "search"
+      ],
+      "cover": {
+        "path": "covers/cloudflare-docs.png",
+        "sha256": "eefc84a0cc4f3f4945a683e5a821f29ba1032c1530856944b509981e1c35e859",
+        "size": 45854
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "context7",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Current documentation and code examples of libraries, fetched for the version you use. Context7's own server; no account needed. Not affiliated with or endorsed by Upstash.",
+      "homepage": "https://context7.com/docs/installation",
+      "server": {
+        "url": "https://mcp.context7.com/mcp",
+        "auth": "none",
+        "docs": "https://context7.com/docs/installation",
+        "run_by": "vendor",
+        "reaches": "the public library documentation Context7 indexes"
+      },
+      "category": "research",
+      "tags": [
+        "docs",
+        "libraries",
+        "examples"
+      ],
+      "cover": {
+        "path": "covers/context7.png",
+        "sha256": "f98205736955b75a087fc9d0ecece62f7a68b06ec10121385265a31cab32afb1",
+        "size": 45765
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "deepwiki",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Ask questions about public GitHub repositories and read their generated wikis. DeepWiki's own server; no account needed. Not affiliated with or endorsed by Cognition.",
+      "homepage": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+      "server": {
+        "url": "https://mcp.deepwiki.com/mcp",
+        "auth": "none",
+        "docs": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+        "run_by": "vendor",
+        "reaches": "the wikis DeepWiki generates for public repositories"
+      },
+      "category": "research",
+      "tags": [
+        "repositories",
+        "wiki",
+        "questions"
+      ],
+      "cover": {
+        "path": "covers/deepwiki.png",
+        "sha256": "b2dc0f5756a8aa54e34196f928f044b39d1ff0bd9b8f3e6c64fedeb75c581b66",
+        "size": 44721
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "fetch",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Fetch a web page and give it to the agent as Markdown. The reference server of the Model Context Protocol project, run on this computer with uvx. Not affiliated with or endorsed by Model Context Protocol.",
+      "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "server": {
+        "command": "uvx",
+        "args": [
+          "mcp-server-fetch===2026.11.18"
+        ],
+        "auth": "none",
+        "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "run_by": "community",
+        "reaches": "any web address the agent asks for, from this computer"
+      },
+      "category": "research",
+      "tags": [
+        "web",
+        "markdown",
+        "reference"
+      ],
+      "cover": {
+        "path": "covers/fetch.png",
+        "sha256": "61dfa9c039187ed7c78b8e5c7d081ba59942ce2c9eacb0c65e9d7e13c000165f",
+        "size": 46434
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T21:14:38Z"
+    },
+    {
+      "name": "github",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Repositories, issues, pull requests and Actions on GitHub. GitHub's own server; it takes a personal access token you put in its settings. Not affiliated with or endorsed by GitHub.",
+      "homepage": "https://github.com/github/github-mcp-server",
+      "server": {
+        "url": "https://api.githubcopilot.com/mcp/",
+        "auth": "key",
+        "secrets": [
+          "Authorization"
+        ],
+        "docs": "https://github.com/github/github-mcp-server",
+        "run_by": "vendor",
+        "reaches": "the repositories, issues and pull requests your token allows"
+      },
+      "category": "coding",
+      "tags": [
+        "git",
+        "issues",
+        "pull-requests",
+        "actions"
+      ],
+      "cover": {
+        "path": "covers/github.png",
+        "sha256": "944add4926b44ac4b96afb33ebb0e8e1e5f78486643e212f08eec3800a8e62a7",
+        "size": 47764
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "gitlab",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Projects, issues, merge requests and pipelines on GitLab.com. GitLab's own server; you sign in with your GitLab account. Not affiliated with or endorsed by GitLab.",
+      "homepage": "https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/",
+      "server": {
+        "url": "https://gitlab.com/api/v4/mcp",
+        "auth": "oauth",
+        "docs": "https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/",
+        "run_by": "vendor",
+        "reaches": "the projects, issues and merge requests your GitLab account can see"
+      },
+      "category": "coding",
+      "tags": [
+        "git",
+        "merge-requests",
+        "pipelines"
+      ],
+      "cover": {
+        "path": "covers/gitlab.png",
+        "sha256": "a3b188c1c902c497e586bd492a6cf2c06b3b14da1df69ce692d4b4ade1827ffb",
+        "size": 45882
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "hugging-face",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Search models, datasets, Spaces, papers and the docs of the Hugging Face Hub. Hugging Face's own server; no account needed for public content. Not affiliated with or endorsed by Hugging Face.",
+      "homepage": "https://huggingface.co/docs/hub/en/hf-mcp-server",
+      "server": {
+        "url": "https://huggingface.co/mcp",
+        "auth": "none",
+        "docs": "https://huggingface.co/docs/hub/en/hf-mcp-server",
+        "run_by": "vendor",
+        "reaches": "the public models, datasets and Spaces of the Hugging Face Hub"
+      },
+      "category": "research",
+      "tags": [
+        "models",
+        "datasets",
+        "ml"
+      ],
+      "cover": {
+        "path": "covers/hugging-face.png",
+        "sha256": "a2d999a364349297e2c2a7225337e2fbaeccd1b22944c623afdc3dfd9457d91e",
+        "size": 51010
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "intercom",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Conversations, contacts and help articles of an Intercom workspace hosted in the US. Intercom's own server; you sign in with your Intercom account. Not affiliated with or endorsed by Intercom.",
+      "homepage": "https://developers.intercom.com/docs/guides/mcp",
+      "server": {
+        "url": "https://mcp.intercom.com/mcp",
+        "auth": "oauth",
+        "docs": "https://developers.intercom.com/docs/guides/mcp",
+        "run_by": "vendor",
+        "reaches": "the conversations and contacts of the US-hosted Intercom workspace you allow"
+      },
+      "category": "communication",
+      "tags": [
+        "support",
+        "conversations",
+        "customers"
+      ],
+      "cover": {
+        "path": "covers/intercom.png",
+        "sha256": "f34142acd4003f6cd4ecea008c223a87134ece503ebf5df383a14dbfd35d412c",
+        "size": 43617
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "linear",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Find, create and update the issues, projects and cycles of a Linear workspace. Linear's own server; you sign in with your Linear account. Not affiliated with or endorsed by Linear.",
+      "homepage": "https://linear.app/docs/mcp",
+      "server": {
+        "url": "https://mcp.linear.app/mcp",
+        "auth": "oauth",
+        "docs": "https://linear.app/docs/mcp",
+        "run_by": "vendor",
+        "reaches": "the issues, projects and comments of the Linear workspace you allow"
+      },
+      "category": "productivity",
+      "tags": [
+        "issues",
+        "projects",
+        "tracker"
+      ],
+      "cover": {
+        "path": "covers/linear.png",
+        "sha256": "b0e1691c66000dff869480949ec5f8c33f89782da91c943302f664faed994f5c",
+        "size": 40956
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "microsoft-learn",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Search and read the Microsoft Learn documentation and code samples. Microsoft's own server; no account needed. Not affiliated with or endorsed by Microsoft.",
+      "homepage": "https://learn.microsoft.com/en-us/training/support/mcp",
+      "server": {
+        "url": "https://learn.microsoft.com/api/mcp",
+        "auth": "none",
+        "docs": "https://learn.microsoft.com/en-us/training/support/mcp",
+        "run_by": "vendor",
+        "reaches": "the public Microsoft Learn documentation"
+      },
+      "category": "research",
+      "tags": [
+        "docs",
+        "azure",
+        "dotnet"
+      ],
+      "cover": {
+        "path": "covers/microsoft-learn.png",
+        "sha256": "14aaf04a0f65dbf672f55176a80199abeaebba1917e25f6b3037dfe0a12f74d6",
+        "size": 45903
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "monday",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Boards, items and updates of a monday.com account. monday.com's own server, run on this computer with npx; it takes an API token you put in its settings. Not affiliated with or endorsed by monday.com.",
+      "homepage": "https://developer.monday.com/apps/docs/mondaycom-mcp-integration",
+      "server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@mondaydotcomorg/monday-api-mcp@3.3.1"
+        ],
+        "auth": "key",
+        "secrets": [
+          "monday_token"
+        ],
+        "docs": "https://developer.monday.com/apps/docs/mondaycom-mcp-integration",
+        "run_by": "vendor",
+        "reaches": "the boards and items your monday.com token allows"
+      },
+      "category": "productivity",
+      "tags": [
+        "boards",
+        "tasks",
+        "projects"
+      ],
+      "cover": {
+        "path": "covers/monday.png",
+        "sha256": "d8109743b47584783a4b6e07a90ce1d64abedb3fc871b635bb9edd8ce93a7487",
+        "size": 43468
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "neon",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Neon Postgres projects, branches and queries. Neon's own server, meant for development and testing; you sign in with your Neon account. Not affiliated with or endorsed by Neon.",
+      "homepage": "https://neon.com/docs/ai/neon-mcp-server",
+      "server": {
+        "url": "https://mcp.neon.tech/mcp",
+        "auth": "oauth",
+        "docs": "https://neon.com/docs/ai/neon-mcp-server",
+        "run_by": "vendor",
+        "reaches": "the Neon projects and databases you allow, including running SQL"
+      },
+      "category": "data",
+      "tags": [
+        "postgres",
+        "database",
+        "branches"
+      ],
+      "cover": {
+        "path": "covers/neon.png",
+        "sha256": "94a7a5f8a3c6e6806360c747213d7f1c5c0ff8c325a22eca8b6568671d806586",
+        "size": 45750
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "notion",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Search, read and edit the pages and databases of a Notion workspace. Notion's own server; you sign in with your Notion account. Not affiliated with or endorsed by Notion.",
+      "homepage": "https://developers.notion.com/docs/get-started-with-mcp",
+      "server": {
+        "url": "https://mcp.notion.com/mcp",
+        "auth": "oauth",
+        "docs": "https://developers.notion.com/docs/get-started-with-mcp",
+        "run_by": "vendor",
+        "reaches": "the pages and databases of the Notion workspace you allow"
+      },
+      "category": "productivity",
+      "tags": [
+        "docs",
+        "wiki",
+        "notes",
+        "databases"
+      ],
+      "cover": {
+        "path": "covers/notion.png",
+        "sha256": "cde4f8642e7b20c51fd3b300b5defaf7475b90da76d8f12688bb4a5fd2741dec",
+        "size": 43298
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "playwright",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "A browser the agent drives: open pages, click, type, read and take screenshots. Microsoft's Playwright MCP, run on this computer with npx (needs Node.js 20). Not affiliated with or endorsed by Microsoft.",
+      "homepage": "https://github.com/microsoft/playwright-mcp",
+      "server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@playwright/mcp@0.0.86"
+        ],
+        "auth": "none",
+        "docs": "https://github.com/microsoft/playwright-mcp",
+        "run_by": "vendor",
+        "reaches": "any web page the agent opens in a browser on this computer"
+      },
+      "category": "testing",
+      "tags": [
+        "browser",
+        "automation",
+        "e2e"
+      ],
+      "cover": {
+        "path": "covers/playwright.png",
+        "sha256": "459acc675e4db2a3081520bc693e1bf0154318c1d98fd4db2544453a8447c6d1",
+        "size": 47532
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "sentry",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Errors, issues and traces of your Sentry projects, to find what broke and why. Sentry's own server; you sign in with your Sentry account. Not affiliated with or endorsed by Sentry.",
+      "homepage": "https://mcp.sentry.dev/",
+      "server": {
+        "url": "https://mcp.sentry.dev/mcp",
+        "auth": "oauth",
+        "docs": "https://mcp.sentry.dev/",
+        "run_by": "vendor",
+        "reaches": "the errors, issues and traces of the Sentry organizations you allow"
+      },
+      "category": "devops",
+      "tags": [
+        "errors",
+        "monitoring",
+        "debugging"
+      ],
+      "cover": {
+        "path": "covers/sentry.png",
+        "sha256": "a166c6165c8c31b26c0d2850e42c1e05b74adbbe66ca42ef4151949df8790043",
+        "size": 48865
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "stripe",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Customers, payments, subscriptions and the Stripe docs. Stripe's own server; you sign in and pick the accounts and sandboxes it may use. Not affiliated with or endorsed by Stripe.",
+      "homepage": "https://docs.stripe.com/mcp",
+      "server": {
+        "url": "https://mcp.stripe.com",
+        "auth": "oauth",
+        "docs": "https://docs.stripe.com/mcp",
+        "run_by": "vendor",
+        "reaches": "the Stripe accounts and sandboxes you allow, including writes such as refunds"
+      },
+      "category": "data",
+      "tags": [
+        "payments",
+        "billing",
+        "api"
+      ],
+      "cover": {
+        "path": "covers/stripe.png",
+        "sha256": "8a308fd7f3e7440be8eaedefdbd831408766946b80a37807cb47ffd79ff5bc25",
+        "size": 44426
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
+    },
+    {
+      "name": "supabase",
+      "version": "1.0.0",
+      "kind": "connector",
+      "description": "Projects, tables, migrations and logs of your Supabase organization. Supabase's own server; you sign in and pick the organization. Not affiliated with or endorsed by Supabase.",
+      "homepage": "https://supabase.com/docs/guides/getting-started/mcp",
+      "server": {
+        "url": "https://mcp.supabase.com/mcp",
+        "auth": "oauth",
+        "docs": "https://supabase.com/docs/guides/getting-started/mcp",
+        "run_by": "vendor",
+        "reaches": "the projects and databases of the Supabase organization you allow, with your permissions"
+      },
+      "category": "data",
+      "tags": [
+        "postgres",
+        "database",
+        "migrations"
+      ],
+      "cover": {
+        "path": "covers/supabase.png",
+        "sha256": "03470271eeb76c0dcddf425ec6e58a91e34d64a95102d4c10973de4b39ea6865",
+        "size": 46548
+      },
+      "created": "2026-11-20T04:44:11Z",
+      "updated": "2026-11-20T04:44:11Z"
     }
   ],
   "verified": []
