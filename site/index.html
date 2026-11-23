@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-0U/yn9lo/4V1bxsTIFs/WxU99u1AR64cU3gQSGXf4Qg='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-wPMq/deaBxlR2VmIVCrG4uiXtFWTGs8sPuAasiDKqDc='; style-src 'sha256-iQFaKjRRCxRcAhBl5J6bneu0D6fAsy8m2rhBU5j4+j4='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -43,8 +43,12 @@ nav .brand { margin-right: auto; gap: 10px; color: var(--text); font-weight: 600
 h1 {
   position: relative; margin: 0; padding-top: clamp(28px, 7vw, 88px);
   font: 500 clamp(64px, 15.5vw, 212px)/.8 var(--display); letter-spacing: -.035em;
-  color: #fbf3e4; margin-bottom: -.045em;
+  color: #fbf3e4; margin-bottom: -.045em; z-index: 1; white-space: nowrap;
 }
+/* The ground hides whatever of the name falls below the horizon; only the last letter
+   stands in front of the line, its tail hanging over it. */
+h1 span { display: inline-block; }
+h1 .sunk { clip-path: inset(-1em -.2em .045em -.2em); }
 .horizon { position: relative; height: 2px; background: linear-gradient(90deg, var(--ember), var(--rose) 45%, rgba(180,160,248,.5) 75%, transparent); }
 
 .intro { padding: clamp(36px, 5vw, 64px) 0 44px; background: var(--night); }
@@ -187,7 +191,7 @@ footer .links { margin-left: auto; display: flex; gap: 22px; }
       <a class="hide" href="https://drobov1tya.github.io/dusk_code/">The app</a>
       <a href="https://github.com/DroBov1Tya/duskcode-workshop">GitHub</a>
     </nav>
-    <h1>Workshop</h1>
+    <h1 aria-label="Workshop"><span class="sunk" aria-hidden="true">Worksho</span><span class="front" aria-hidden="true">p</span></h1>
   </div>
   <div class="horizon"></div>
 </header>
