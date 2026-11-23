@@ -1,7 +1,7 @@
 {
   "format": 3,
-  "serial": 5,
-  "expires": "2027-05-22T19:09:20Z",
+  "serial": 8,
+  "expires": "2027-05-22T19:22:33Z",
   "plugins": [
     {
       "name": "ios-simulator",
@@ -229,6 +229,11 @@
         "playwright",
         "notebooks"
       ],
+      "cover": {
+        "path": "covers/dev-workflow-skills.webp",
+        "sha256": "aa38e5e4e4d44f8ff606ddf3859b990df00049938e9bc32ec75d198d599acae3",
+        "size": 15098
+      },
       "created": "2026-11-18T16:26:11Z",
       "updated": "2026-11-19T23:16:11Z",
       "author": "OpenAI",
@@ -240,80 +245,6 @@
         "security"
       ],
       "badge": "verified"
-    },
-    {
-      "name": "duskcode-agents",
-      "version": "1.20261119.0",
-      "kind": "pack",
-      "description": "The full roster of Duskcode agents: engineers, testers and security specialists. Some are also built into duskcode itself; this pack holds all of them.",
-      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-agents",
-      "downloads": [
-        {
-          "os": "any",
-          "arch": "any",
-          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-agents-v1.20261119.0/duskcode-agents-1.20261119.0.tar.gz",
-          "sha256": "98494bd94db0e20031482f5ee8e6263ee8e370699e3b87a7fe8b6ed84d030df3",
-          "size": 14078
-        }
-      ],
-      "skills": [
-        "accessibility-reviewer",
-        "ad-security-specialist",
-        "android-engineer",
-        "api-engineer",
-        "api-security-specialist",
-        "api-tester",
-        "appsec-reviewer",
-        "architect",
-        "authorized-red-team",
-        "backend-engineer",
-        "build-release-engineer",
-        "cloud-security-specialist",
-        "code-reviewer",
-        "concurrency-engineer",
-        "cross-platform-mobile-engineer",
-        "database-engineer",
-        "devops-engineer",
-        "frontend-engineer",
-        "infrastructure-engineer",
-        "infrastructure-security-specialist",
-        "ios-engineer",
-        "mobile-engineer",
-        "mobile-security-specialist",
-        "mobile-tester",
-        "network-engineer",
-        "network-protocol-tester",
-        "performance-engineer",
-        "qa-engineer",
-        "resilience-tester",
-        "security-engineer",
-        "sre-engineer",
-        "web-engineer",
-        "web-security-specialist",
-        "web-tester"
-      ],
-      "category": "coding",
-      "tags": [
-        "agents",
-        "roster",
-        "review"
-      ],
-      "cover": {
-        "path": "covers/duskcode-agents.webp",
-        "sha256": "af076ccab46513adf23610b09c6557ee6ef9810368c5d2d12a540218af920f2d",
-        "size": 23568
-      },
-      "created": "2026-11-18T16:26:11Z",
-      "updated": "2026-11-19T23:16:20Z",
-      "author": "duskcode",
-      "license": "MIT",
-      "source": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-agents",
-      "categories": [
-        "coding",
-        "review",
-        "security"
-      ],
-      "badge": "official"
     },
     {
       "name": "duskcode-engineering",
@@ -381,6 +312,102 @@
       "badge": "official"
     },
     {
+      "name": "duskcode-engineering-agents",
+      "version": "1.20261123.0",
+      "kind": "pack",
+      "description": "Engineers for system design, backend, web, databases, infrastructure, networks, concurrency, performance, builds and operations.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-engineering-agents",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-engineering-agents-v1.20261123.0/duskcode-engineering-agents-1.20261123.0.tar.gz",
+          "sha256": "8e0f69b5e22ea6f0eb6a6e3b642c4bae9654cae06b32cd1c388b41270629db53",
+          "size": 5047
+        }
+      ],
+      "skills": [
+        "api-engineer",
+        "architect",
+        "backend-engineer",
+        "build-release-engineer",
+        "concurrency-engineer",
+        "database-engineer",
+        "devops-engineer",
+        "frontend-engineer",
+        "infrastructure-engineer",
+        "network-engineer",
+        "performance-engineer",
+        "sre-engineer",
+        "web-engineer"
+      ],
+      "category": "coding",
+      "tags": [
+        "agents",
+        "architecture",
+        "backend",
+        "devops"
+      ],
+      "cover": {
+        "path": "covers/duskcode-engineering-agents.webp",
+        "sha256": "cbdb7a3013f800681a60cbdbca5d7af63dd70b2eb71cbf4ec557174c0ea1f6c6",
+        "size": 28296
+      },
+      "created": "2026-11-23T19:13:29Z",
+      "updated": "2026-11-23T19:13:29Z",
+      "author": "duskcode",
+      "license": "MIT",
+      "source": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-engineering-agents",
+      "categories": [
+        "coding",
+        "devops"
+      ],
+      "badge": "official"
+    },
+    {
+      "name": "duskcode-mobile-agents",
+      "version": "1.20261123.0",
+      "kind": "pack",
+      "description": "Engineers for Android, iOS and cross-platform mobile apps.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-mobile-agents",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-mobile-agents-v1.20261123.0/duskcode-mobile-agents-1.20261123.0.tar.gz",
+          "sha256": "accffa109bd93c2980c0f146494fbf2bf9d5dbd9f2a871a5e35c89a201506265",
+          "size": 1705
+        }
+      ],
+      "skills": [
+        "android-engineer",
+        "cross-platform-mobile-engineer",
+        "ios-engineer",
+        "mobile-engineer"
+      ],
+      "category": "coding",
+      "tags": [
+        "agents",
+        "android",
+        "ios",
+        "mobile"
+      ],
+      "cover": {
+        "path": "covers/duskcode-mobile-agents.webp",
+        "sha256": "e0a863a91844299f974b1865902d2dbd81dbeec8c12a8ea2dc7be0b6f014e29e",
+        "size": 18256
+      },
+      "created": "2026-11-23T19:13:29Z",
+      "updated": "2026-11-23T19:13:29Z",
+      "author": "duskcode",
+      "license": "MIT",
+      "source": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-mobile-agents",
+      "categories": [
+        "coding"
+      ],
+      "badge": "official"
+    },
+    {
       "name": "duskcode-security",
       "version": "1.20261118.0",
       "kind": "pack",
@@ -439,6 +466,102 @@
       "badge": "official"
     },
     {
+      "name": "duskcode-security-agents",
+      "version": "1.20261123.0",
+      "kind": "pack",
+      "description": "Security specialists for authorized assessments: web, API, mobile, cloud, infrastructure, Active Directory, application security review and red team.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-security-agents",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-security-agents-v1.20261123.0/duskcode-security-agents-1.20261123.0.tar.gz",
+          "sha256": "5e525df8ad05d17eb6df2f3b258a27e0660b3ad8a0a2b17488be9c2172a70733",
+          "size": 5910
+        }
+      ],
+      "skills": [
+        "ad-security-specialist",
+        "api-security-specialist",
+        "appsec-reviewer",
+        "authorized-red-team",
+        "cloud-security-specialist",
+        "infrastructure-security-specialist",
+        "mobile-security-specialist",
+        "security-engineer",
+        "web-security-specialist"
+      ],
+      "category": "security",
+      "tags": [
+        "agents",
+        "pentest",
+        "appsec",
+        "red-team"
+      ],
+      "cover": {
+        "path": "covers/duskcode-security-agents.webp",
+        "sha256": "593425d72e27990104223f3283824f9493e267c45d70c44528badfb40b396afd",
+        "size": 22762
+      },
+      "created": "2026-11-23T19:13:29Z",
+      "updated": "2026-11-23T19:13:29Z",
+      "author": "duskcode",
+      "license": "MIT",
+      "source": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-security-agents",
+      "categories": [
+        "security"
+      ],
+      "badge": "official"
+    },
+    {
+      "name": "duskcode-testing-agents",
+      "version": "1.20261123.0",
+      "kind": "pack",
+      "description": "Testers and reviewers: QA, API, web, mobile, network protocol and resilience testing, code and accessibility review.",
+      "homepage": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-testing-agents",
+      "downloads": [
+        {
+          "os": "any",
+          "arch": "any",
+          "url": "https://github.com/DroBov1Tya/duskcode-workshop/releases/download/duskcode-testing-agents-v1.20261123.0/duskcode-testing-agents-1.20261123.0.tar.gz",
+          "sha256": "fcf64386d46f3998a93cb4c261432b51ccd1779c6c7234c5092e1c8beca6e86b",
+          "size": 3676
+        }
+      ],
+      "skills": [
+        "accessibility-reviewer",
+        "api-tester",
+        "code-reviewer",
+        "mobile-tester",
+        "network-protocol-tester",
+        "qa-engineer",
+        "resilience-tester",
+        "web-tester"
+      ],
+      "category": "testing",
+      "tags": [
+        "agents",
+        "qa",
+        "review",
+        "accessibility"
+      ],
+      "cover": {
+        "path": "covers/duskcode-testing-agents.webp",
+        "sha256": "09d381bc568c836bf516a00716a36a513cb6946ef6d182b23edebfc07b38618c",
+        "size": 24408
+      },
+      "created": "2026-11-23T19:13:29Z",
+      "updated": "2026-11-23T19:13:29Z",
+      "author": "duskcode",
+      "license": "MIT",
+      "source": "https://github.com/DroBov1Tya/duskcode-workshop/tree/main/packs/duskcode-testing-agents",
+      "categories": [
+        "testing",
+        "review"
+      ],
+      "badge": "official"
+    },
+    {
       "name": "gpu-computing-skills",
       "version": "1.20261118.0",
       "kind": "pack",
@@ -463,6 +586,11 @@
         "gpu",
         "dataframes"
       ],
+      "cover": {
+        "path": "covers/gpu-computing-skills.webp",
+        "sha256": "26587c3e92b81ce06fc9055017b17945d0ab16300a9def0558c6566d67c99a7d",
+        "size": 16496
+      },
       "created": "2026-11-18T16:26:11Z",
       "updated": "2026-11-18T16:26:11Z",
       "author": "NVIDIA",
@@ -500,6 +628,11 @@
         "mcp",
         "web"
       ],
+      "cover": {
+        "path": "covers/web-builder-skills.webp",
+        "sha256": "2c795248b553c6e4154ee06dcb5df9d545f696f49cf2875e8985ac9326d263ec",
+        "size": 15594
+      },
       "created": "2026-11-18T16:26:11Z",
       "updated": "2026-11-19T23:16:11Z",
       "author": "Anthropic",
@@ -582,6 +715,11 @@
         "newsletters",
         "review"
       ],
+      "cover": {
+        "path": "covers/communication-skills.webp",
+        "sha256": "8f1698b2fb043541993d5f9c39e28e8678c86ee1945b5d84c67469e4facdf3c1",
+        "size": 15136
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "Anthropic",
@@ -1501,6 +1639,11 @@
         "machine-learning",
         "dataframes"
       ],
+      "cover": {
+        "path": "covers/gpu-acceleration-skills.webp",
+        "sha256": "06592d384e19ce11914edd8198f78b9be4383e68d9e4fe5598bcaff13af68ca6",
+        "size": 25192
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "NVIDIA",
@@ -2567,6 +2710,11 @@
         "simulation",
         "gradients"
       ],
+      "cover": {
+        "path": "covers/gpu-simulation-skills.webp",
+        "sha256": "1aa12094869d3714b56edddc3faa9c303f6efe11649c3eda728966907a2be970",
+        "size": 25950
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "NVIDIA",
@@ -2793,6 +2941,11 @@
         "hosting",
         "preview"
       ],
+      "cover": {
+        "path": "covers/hosting-deploy-skills.webp",
+        "sha256": "097df111ed76aa83170a85162cc48ea6a9e3fadbb4a65c694674839ca49b5337",
+        "size": 13148
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "OpenAI",
@@ -3373,6 +3526,11 @@
         "networking",
         "performance"
       ],
+      "cover": {
+        "path": "covers/multi-gpu-memory-skills.webp",
+        "sha256": "02ceb52ce9c531e96f19e2ab429c1c4c78c969ed760f86a86ed61b2f86fc6062",
+        "size": 14652
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "NVIDIA",
@@ -4507,6 +4665,11 @@
         "slides",
         "spreadsheets"
       ],
+      "cover": {
+        "path": "covers/office-document-skills.webp",
+        "sha256": "10d85288966acc4b0c30950fdb97da8515ddd7dfdca74fd5d3bfdd4875463fbc",
+        "size": 15120
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "Anthropic",
@@ -5213,6 +5376,11 @@
         "solver",
         "gpu"
       ],
+      "cover": {
+        "path": "covers/optimization-solver-skills.webp",
+        "sha256": "a251ac492f9fe1474e8f185422936f33a74fa1a43795cc1a9145ccbc30ae4dcf",
+        "size": 13592
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "NVIDIA",
@@ -5399,6 +5567,11 @@
         "screenshots",
         "pdf"
       ],
+      "cover": {
+        "path": "covers/repository-utility-skills.webp",
+        "sha256": "ac4eb1ad003a8ee2ca0e9311bab5862b712ca520ddecb9be97d97a6f353bbf20",
+        "size": 13052
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "OpenAI",
@@ -5558,6 +5731,11 @@
         "transcription",
         "audio"
       ],
+      "cover": {
+        "path": "covers/speech-audio-skills.webp",
+        "sha256": "f072ca1d0eb00ce3aedd6c7faa61b83ffe313f874a24dd8b31657a260790aa7f",
+        "size": 27098
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "OpenAI",
@@ -6094,6 +6272,11 @@
         "wiki",
         "meetings"
       ],
+      "cover": {
+        "path": "covers/team-workspace-skills.webp",
+        "sha256": "6648048ccd8c617de840eedc68d79367ee4efa32681bf5bb0b187e4420c5da83",
+        "size": 16568
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "OpenAI",
@@ -6865,6 +7048,11 @@
         "triton",
         "autotuning"
       ],
+      "cover": {
+        "path": "covers/tile-kernel-skills.webp",
+        "sha256": "9edbba94f0ef68245f5c94d316b0dc64f39a843e1f508913a5d3f031d276f8e1",
+        "size": 14690
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "NVIDIA",
@@ -7237,6 +7425,11 @@
         "themes",
         "gif"
       ],
+      "cover": {
+        "path": "covers/visual-design-skills.webp",
+        "sha256": "1aa624e6ed3f91248c55bd58957e71293477ae92a4b7ac17d7e0a3506d6b6ca6",
+        "size": 24840
+      },
       "created": "2026-11-20T04:34:08Z",
       "updated": "2026-11-20T04:34:08Z",
       "author": "Anthropic",
