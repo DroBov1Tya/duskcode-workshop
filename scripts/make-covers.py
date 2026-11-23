@@ -30,6 +30,10 @@ COVERS = {
     "ios-simulator": ("Device Simulator", "PLUGIN / DEVICES", "#38bdf8", "phone"),
     "vphone": ("Virtual Phone", "PLUGIN / DEVICES", "#e879f9", "phone2"),
     "telegram": ("Chat Bridge", "PLUGIN / CHAT", "#60a5fa", "bubbles"),
+    # Packs copied here from their authors (packs/): named for what they do.
+    "web-builder-skills": ("Web Builder", "SKILL PACK / VERIFIED", "#f472b6", "arches"),
+    "dev-workflow-skills": ("Dev Workflow", "SKILL PACK / VERIFIED", "#a3e635", "stairs"),
+    "gpu-computing-skills": ("GPU Compute", "SKILL PACK / VERIFIED", "#4ade80", "slabs"),
     # Packs pinned in their authors' repositories (pinned/): named for what they do.
     "office-document-skills": ("Documents", "SKILL PACK / PINNED", "#34d399", "slabs"),
     "visual-design-skills": ("Visual Design", "SKILL PACK / PINNED", "#f472b6", "rings"),
