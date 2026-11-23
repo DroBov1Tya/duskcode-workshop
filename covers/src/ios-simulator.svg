@@ -5,7 +5,7 @@
 <rect x="770" y="90" width="260" height="450" rx="40" fill="none" stroke="#38bdf8" stroke-width="12"/><rect x="800" y="130" width="200" height="300" rx="14" fill="#38bdf8" opacity="0.2"/><circle cx="900" cy="480" r="22" fill="none" stroke="#38bdf8" stroke-width="8"/><rect x="850" y="106" width="100" height="10" rx="5" fill="#38bdf8"/><polygon points="840,180 960,260 840,340" fill="#38bdf8"/>
 <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
 <text x="70" y="96" font-size="26" font-weight="700" letter-spacing="6" fill="#38bdf8">PLUGIN / DEVICES</text>
-<text x="70" y="430" font-size="92" font-weight="800" fill="#f4f5f7">ios-simulator</text>
+<text x="70" y="430" font-size="64" font-weight="800" fill="#f4f5f7">Device Simulator</text>
 <text x="70" y="560" font-size="28" font-weight="600" letter-spacing="8" fill="#8a90a0">DUSKCODE WORKSHOP</text>
 </g>
 </svg>

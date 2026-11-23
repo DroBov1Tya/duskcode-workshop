@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-9Yu0blkfZRRwHwFQIoV5PtVn0CnbckTZHM41dL02q5A='; style-src 'sha256-/SZVBr9+oNOFM2MPszn1MpoYdDSyvDxs+DXP2ywKb2M='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-CKuurP+H/aa1Cv61SdfhOm7gv/pq8cqIUj8U/KAac9o='; style-src 'sha256-nKAg1UH16jyA4SVOl+ZUGMj3fgFezsRr80mZ9bdU5r4='; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'; trusted-types 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>duskcode Workshop</title>
 <meta name="description" content="Plugins, skills, packs and agents for duskcode, checked and signed. Install them from Plugins, Workshop in the app.">
@@ -125,7 +125,13 @@ h2 { font-size: clamp(26px, 3.6vw, 34px); letter-spacing: -.015em; margin: 0 0 1
 .foot .meta { margin-left: auto; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .tier { display: inline-flex; align-items: center; gap: 4px; font-size: var(--meta); font-weight: 500; white-space: nowrap; }
 .t-official { color: var(--accent); }
+.t-verified { color: #6fcf97; }
 .t-community { color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+.chips button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--muted); font: inherit; font-size: var(--small); cursor: pointer; }
+.chips button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+.chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.by { margin: 0; font-size: var(--meta); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .empty { grid-column: 1 / -1; color: var(--muted); margin: 0; }
 
 /* An item's details open over the page, so a card never grows. */
@@ -183,6 +189,7 @@ footer span { margin-right: auto; }
       <h1>The <span>Workshop</span> of duskcode</h1>
       <p class="lead">Plugins, skills, packs and agents. A plugin runs in its own sandbox, sees none of your keys and reaches only the sites it names; skills and agents are text.</p>
       <label class="search" hidden><input id="search" type="search" placeholder="Search the Workshop" autocomplete="off" aria-label="Search the Workshop"></label>
+      <div class="chips" id="chips" role="group" aria-label="Show" hidden></div>
       <p class="count" id="count" aria-live="polite"></p>
       <div class="install" role="group" aria-labelledby="install-title">
         <h2 id="install-title">Install in duskcode</h2>
@@ -220,7 +227,7 @@ footer span { margin-right: auto; }
 
 <div class="wrap">
   <footer>
-    <span>duskcode Workshop · MIT · no trackers, no third-party scripts or fonts</span>
+    <span>duskcode Workshop · MIT · no trackers, no third-party scripts or fonts · Other companies' names say only what an item works with; duskcode is not affiliated with or endorsed by them.</span>
     <a href="https://github.com/DroBov1Tya/duskcode-workshop">Source</a>
     <a href="https://github.com/DroBov1Tya/dusk_code/blob/main/docs/plugins.md">Writing a plugin</a>
   </footer>
@@ -245,8 +252,8 @@ footer span { margin-right: auto; }
 // The list is third-party data: every value goes in as text, never as markup.
 var SYSTEMS = { macos: 'macOS', linux: 'Linux', windows: 'Windows' };
 var CLIENTS = { gui: 'Desktop', tui: 'Terminal', web: 'Browser' };
-var KINDS = { plugin: 'Plugin', pack: 'Pack', skill: 'Skill', agent: 'Agent' };
-var FORMATS = [1, 2];
+var KINDS = { plugin: 'Plugin', pack: 'Pack', skill: 'Skill', agent: 'Agent', connector: 'Connector' };
+var FORMATS = [1, 2, 3];
 var COVER = /^covers\/[A-Za-z0-9._-]+\.(webp|png)$/;
 // "Official" is true only for the list this address serves: the one signed with the key
 // built into duskcode. A copy of the page on another host serves another list.
@@ -259,9 +266,11 @@ var GLYPHS = {
   plugin: [40, false, 'M15 6h10v7h7v10h-5a4 4 0 1 0 0 8h5v3H8V13h7V6Z'],
   pack: [40, false, 'M6 13 20 6l14 7-14 7L6 13Zm0 7 14 7 14-7M6 27l14 7 14-7'],
   skill: [40, false, 'M11 5h13l6 6v24H11V5Zm13 0v6h6M16 19h9M16 25h9'],
+  connector: [40, false, 'M14 6v8M26 6v8M10 14h20v6a10 10 0 0 1-20 0v-6ZM20 30v5'],
+  verified: [16, false, 'M8 1 2.5 3v4.6c0 3.2 2.2 6 5.5 7.4 3.3-1.4 5.5-4.2 5.5-7.4V3L8 1ZM5.2 8l1.8 1.8L10.8 6'],
   agent: [40, false, 'M20 8a6 6 0 1 1 0 12 6 6 0 0 1 0-12ZM8 34c0-7 5.4-11 12-11s12 4 12 11']
 };
-var TIERS = { official: 'Official', community: 'Community' };
+var TIERS = { official: 'Official', verified: 'Verified', community: 'Community' };
 var listTier = tierFor(location.origin + location.pathname);
 var all = [];
 var returnTo = null;
@@ -308,12 +317,27 @@ function arr(value) { return Array.isArray(value) ? value : []; }
 
 function kindOf(item) { return own(KINDS, item.kind) ? item.kind : 'plugin'; }
 
-function tierMark() {
-  var mark = el('span', 'tier t-' + listTier);
-  mark.appendChild(glyph(listTier));
-  mark.appendChild(el('span', '', TIERS[listTier]));
+// Official only for the owner's own work in the official list; anything else in it is
+// Verified, so a missing or unknown badge never raises an item.
+function tierOf(item) {
+  if (listTier !== 'official') return 'community';
+  return item.badge === 'official' ? 'official' : 'verified';
+}
+
+function tierMark(item) {
+  var tier = tierOf(item);
+  var mark = el('span', 'tier t-' + tier);
+  mark.appendChild(glyph(tier));
+  mark.appendChild(el('span', '', TIERS[tier]));
   return mark;
 }
+
+// A pack of agents is a pack whose tags say so; the list has no separate kind for it.
+function isAgents(item) {
+  return item.kind === 'agent' || (kindOf(item) === 'pack' && arr(item.tags).indexOf('agents') !== -1);
+}
+
+function kindLabel(item) { return isAgents(item) ? 'Agent pack' : KINDS[kindOf(item)]; }
 
 function placeholder(item) {
   var box = el('div', 'ph');
@@ -353,11 +377,12 @@ function card(item) {
   open.addEventListener('click', function () { details(item, open); });
   title.appendChild(open);
   name.appendChild(title);
-  name.appendChild(el('span', 'kind', KINDS[kindOf(item)]));
+  name.appendChild(el('span', 'kind', kindLabel(item)));
   body.appendChild(name);
+  if (typeof item.author === 'string' && item.author) body.appendChild(el('p', 'by', 'by ' + item.author));
   body.appendChild(el('p', 'desc', item.description || ''));
   var foot = el('div', 'foot');
-  foot.appendChild(tierMark());
+  foot.appendChild(tierMark(item));
   if (item.category) foot.appendChild(el('span', 'meta', item.category));
   body.appendChild(foot);
   node.appendChild(body);
@@ -412,8 +437,10 @@ function details(item, from) {
   title.appendChild(el('code', '', item.version || ''));
   sheet.appendChild(title);
   var facts = el('div', 'facts'), items = arr(item.skills);
-  facts.appendChild(tierMark());
-  facts.appendChild(el('span', '', KINDS[kind] + (kind === 'pack' ? ' of ' + items.length : '')));
+  facts.appendChild(tierMark(item));
+  facts.appendChild(el('span', '', kindLabel(item) + (kind === 'pack' ? ' of ' + items.length : '')));
+  if (typeof item.author === 'string' && item.author) facts.appendChild(el('span', '', 'by ' + item.author));
+  if (typeof item.license === 'string' && item.license) facts.appendChild(el('span', '', item.license));
   if (item.category) facts.appendChild(el('span', '', item.category));
   sheet.appendChild(facts);
   sheet.appendChild(el('p', '', item.description || ''));
@@ -454,11 +481,33 @@ function installStep(name) {
   return box;
 }
 
+var SHOW = [['all', 'All'], ['plugin', 'Plugins'], ['agents', 'Agents'], ['pack', 'Skill packs'], ['connector', 'Connectors']];
+var chosen = 'all';
+
+function inChoice(p) {
+  if (chosen === 'all') return true;
+  if (chosen === 'agents') return isAgents(p);
+  if (chosen === 'pack') return kindOf(p) === 'pack' && !isAgents(p);
+  return kindOf(p) === chosen;
+}
+
+function drawChips() {
+  var box = document.getElementById('chips');
+  box.replaceChildren.apply(box, SHOW.map(function (pair) {
+    var b = el('button', '', pair[1]);
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(chosen === pair[0]));
+    b.addEventListener('click', function () { chosen = pair[0]; drawChips(); show(); });
+    return b;
+  }));
+  box.hidden = false;
+}
+
 function show() {
   var words = document.getElementById('search').value.trim().toLowerCase();
   var shown = all.filter(function (p) {
-    var text = [p.name, p.description, p.category, KINDS[kindOf(p)]].concat(arr(p.tags)).join(' ');
-    return !words || text.toLowerCase().indexOf(words) !== -1;
+    var text = [p.name, p.description, p.category, p.author, kindLabel(p)].concat(arr(p.tags)).join(' ');
+    return inChoice(p) && (!words || text.toLowerCase().indexOf(words) !== -1);
   });
   var grid = document.getElementById('items');
   grid.replaceChildren.apply(grid, shown.map(card));
@@ -485,6 +534,7 @@ fetch('index.json', { cache: 'no-cache' })
     all = (Array.isArray(index.plugins) ? index.plugins : [])
       .filter(function (p) { return p && typeof p.name === 'string'; })
       .sort(function (a, b) { return a.name < b.name ? -1 : 1; });
+    drawChips();
     show();
   })
   .catch(function () { failed('The list did not load. Try again in a moment.'); });

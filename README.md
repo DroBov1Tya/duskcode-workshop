@@ -109,12 +109,12 @@ about who wrote an item of this list.
    `1.<date of its last commit>.0`.
 3. A maintainer runs `scripts/publish.py` on their own machine. It keeps every version
    already signed as it was signed; for a new version it checks the build attestations and
-   asks before signing the hashes it shows. It writes `site/index.json` (format 2: kind,
+   asks before signing the hashes it shows. It writes `site/index.json` (format 3: kind, author, license, source, badge,
    category, tags, cover, screenshots, created, updated, verified; no stars) with the next serial and an
    expiry (180 days) and signs it with the key from their keychain into
    `site/index.json.sig`. The key never reaches GitHub. `scripts/publish.py --dry-run`
    writes the unsigned list to a temp folder for review and signs nothing;
-   `scripts/check-index.py <index.json>` checks it against duskcode's format 2 rules.
+   `scripts/check-index.py <index.json>` checks it against duskcode's format 3 rules.
 4. A push of `site/` puts the page and the signed list on GitHub Pages.
 
 duskcode installs a plugin only when the list's signature checks against the key built

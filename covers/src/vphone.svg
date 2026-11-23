@@ -5,7 +5,7 @@
 <rect x="760" y="120" width="230" height="400" rx="40" fill="none" stroke="#e879f9" stroke-width="12" stroke-dasharray="26 14"/><rect x="830" y="90" width="230" height="400" rx="40" fill="#e879f9" opacity="0.28"/><circle cx="945" cy="290" r="64" fill="#e879f9"/>
 <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
 <text x="70" y="96" font-size="26" font-weight="700" letter-spacing="6" fill="#e879f9">PLUGIN / DEVICES</text>
-<text x="70" y="430" font-size="120" font-weight="800" fill="#f4f5f7">vphone</text>
+<text x="70" y="430" font-size="92" font-weight="800" fill="#f4f5f7">Virtual Phone</text>
 <text x="70" y="560" font-size="28" font-weight="600" letter-spacing="8" fill="#8a90a0">DUSKCODE WORKSHOP</text>
 </g>
 </svg>
